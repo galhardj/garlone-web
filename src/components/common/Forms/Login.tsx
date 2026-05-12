@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Input from "@/src/components/common/Forms/InputWithLabel";
-import Button from "@/src/components/common/Button";
+import { RegButton, IconButton } from "@/src/components/common/Button";
 import Form from "@/src/components/common/Forms/Form";
 import ImageNext from "@/src/components/common/ImageNext";
 import { getLoginUserData } from "@/src/lib/api/login";
@@ -69,15 +69,14 @@ const LoginForm = () => {
             required
             iconEmbeded
           >
-            <Button
-              style="icon"
-              styleType="password"
+            <IconButton
+              category="password"
               aria-label="toggle password visibility"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => setShowPass((p) => !p)}
             >
               {showPass ? <Eye /> : <EyeOff />}
-            </Button>
+            </IconButton>
           </Input>
 
           {error && (
@@ -85,9 +84,9 @@ const LoginForm = () => {
               {error}
             </p>
           )}
-          <Button type="submit" data-testid="login-submit">
+          <RegButton type="submit" data-testid="login-submit">
             Login
-          </Button>
+          </RegButton>
         </Form>
       </div>
     </div>

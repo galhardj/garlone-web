@@ -19,7 +19,7 @@ const buttconVariants = cva(
 );
 
 type RegButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  color: VariantProps<typeof buttconVariants>["color"];
+  color?: VariantProps<typeof buttconVariants>["color"];
 };
 
 const RegButton = React.forwardRef<HTMLButtonElement, RegButtonProps>(
