@@ -1,8 +1,8 @@
 import BannerLegacy from "@/src/components/mock-model/BannerLegacy";
-import Banner from "@/src/components/common/Banner";
+import Feature from "@/src/components/common/Feature";
 import Accordion from "@/src/components/common/Accordion";
 import Form from "@/src/components/common/Forms/Contact/Contact";
-import { BANNER } from "@/src/constants/banner";
+import { FEATURE_RECRUITMENT } from "@/src/constants/feature";
 import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
 
@@ -10,11 +10,11 @@ export default function Page() {
   return (
     <>
       <BannerLegacy />
-      <Banner
-        position={BANNER.position}
-        image={BANNER.image}
-        title={BANNER.title}
-        description={BANNER.description}
+      <Feature
+        position={FEATURE_RECRUITMENT.position}
+        image={FEATURE_RECRUITMENT.image}
+        title={FEATURE_RECRUITMENT.title}
+        description={FEATURE_RECRUITMENT.description}
       />
       <Accordion
         title={ACCORDION_ITEMS.title}

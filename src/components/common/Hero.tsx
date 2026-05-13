@@ -3,7 +3,7 @@ import { Link } from "@/src/components/common/Button";
 import { MoveRight } from "lucide-react";
 import { HeroBannerProps } from "@/src/type/props";
 
-const HeroBanner = ({
+const Hero = ({
   image,
   title,
   subtitle,
@@ -53,4 +53,4 @@ const HeroBanner = ({
   );
 };
 
-export default HeroBanner;
+export default Hero;

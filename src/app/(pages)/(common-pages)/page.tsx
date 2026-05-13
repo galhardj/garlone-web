@@ -1,8 +1,8 @@
 import BannerLegacy from "@/src/components/mock-model/BannerLegacy";
-import Banner from "@/src/components/common/Banner";
+import Feature from "@/src/components/common/Feature";
 import Accordion from "@/src/components/common/Accordion";
 import Form from "@/src/components/common/Forms/Contact/Contact";
-import { BANNER } from "@/src/constants/banner";
+import { FEATURE_RECRUITMENT, FEATURE_CHARITY } from "@/src/constants/feature";
 import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -15,13 +15,19 @@ export default async function Page() {
   return (
     <>
       <BannerLegacy />
-      <Banner
+      <Feature
         position={contentfulBanner.fields.imagePosition ? "left" : "right"}
-        image={BANNER.image}
+        image={FEATURE_RECRUITMENT.image}
         title={contentfulBanner.fields.title}
         richText={documentToReactComponents(
           contentfulBanner.fields.description,
         )}
+      />
+      <Feature
+        position={FEATURE_CHARITY.position}
+        image={FEATURE_CHARITY.image}
+        title={FEATURE_CHARITY.title}
+        description={FEATURE_CHARITY.description}
       />
       <Accordion
         title={ACCORDION_ITEMS.title}
