@@ -22,7 +22,7 @@ interface LinkProps {
 }
 
 const linkButtonVariants = buttonVariants(
-  "text-sm rounded-xl bg-gray-600 px-7 py-2 font-medium text-gray-200 md:text-base md:py-3 md:mt-3",
+  "text-sm rounded-xl px-7 py-2 font-medium text-gray-200 md:text-base md:py-3 md:mt-3",
 );
 
 const AppLink = ({ href, buttonColor, className, children }: LinkProps) => {
