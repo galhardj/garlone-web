@@ -1,7 +1,7 @@
 export const BANNER = {
   position: "left",
   image: {
-    src: "/images/meetings.png",
+    src: "/images/colleagues-work.webp",
     alt: "Season Sip Banner",
   },
   title: "Welcome back, Pumpkin Spice Latte",
