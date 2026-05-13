@@ -1,15 +1,29 @@
-export const BANNER = {
+import { FeatureProps } from "@/src/components/common/Feature";
+
+export const FEATURE_RECRUITMENT: FeatureProps = {
   position: "left",
   image: {
-    src: "/images/meetings.png",
+    src: "/images/colleagues-work.webp",
     alt: "Season Sip Banner",
   },
   title: "Welcome back, Pumpkin Spice Latte",
   description:
     "It's the sip you've been waiting for all year. Our Pumpkin Spice Latte brings autumn to life in every cup.",
-} as const;
+};
 
-export const HERO_BANNER = {
+export const FEATURE_CHARITY: FeatureProps = {
+  position: "right",
+  image: {
+    src: "/images/foundation.webp",
+    alt: "Foundation",
+  },
+  title: "Our Charitable Foundation",
+  description: `Our dedicated charitable organization actively helps vulnerable individuals break the difficult cycle of homelessness and poverty. We achieve this by providing daily surplus food donations, skills training, and stable long-term employment opportunities within our business.
+  
+  Donating unsold food since day one.`,
+};
+
+export const HERO = {
   image: {
     src: "/images/kiwi.avif",
     alt: "Assorted premium dry fruits and nuts",
@@ -22,4 +36,4 @@ export const HERO_BANNER = {
     url: "/products",
     text: "Shop Now",
   },
-} as const;
+};

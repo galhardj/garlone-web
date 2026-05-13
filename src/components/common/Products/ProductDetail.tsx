@@ -1,7 +1,7 @@
 "use client";
 
 import { IconButton } from "@/src/components/common/Button";
-import Link from "../Link";
+import { Link } from "@/src/components/common/Button";
 import ImageNext from "@/src/components/common/ImageNext";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -84,8 +84,8 @@ const ProductDetail = ({
             </div>
 
             <Link
-              url={`https://bulbapedia.bulbagarden.net/wiki/${product.name}_(Pokemon)`}
-              style="button"
+              href={`https://bulbapedia.bulbagarden.net/wiki/${product.name}_(Pokemon)`}
+              buttonColor="gray"
             >
               Bulbapedia
             </Link>
