@@ -12,7 +12,7 @@ export const FEATURE_FEEDBACK: FeatureProps = {
   button: {
     label: "Submit a say",
     href: "https://support.google.com/",
-    buttonColor: "gray",
+    buttonColor: "transparent",
   },
 };
 

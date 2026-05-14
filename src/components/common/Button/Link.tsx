@@ -11,7 +11,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { cn } from "@/src/lib/utils/mergeTailwind";
-import { linkButtonVariants, type buttonColors } from "./styles";
+import { buttonVariants, type buttonColors } from "./styles";
 
 interface LinkProps {
   href: string;
@@ -34,7 +34,7 @@ const AppLink = ({ href, buttonColor, className, children }: LinkProps) => {
   };
 
   const style = cn(
-    buttonColor && linkButtonVariants({ color: buttonColor }),
+    buttonColor && buttonVariants({ color: buttonColor }),
     className,
   );
 
