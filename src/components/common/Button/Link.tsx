@@ -11,8 +11,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { cn } from "@/src/lib/utils/mergeTailwind";
-import { type VariantProps } from "class-variance-authority";
-import { buttonVariants } from "./styles";
+import { buttonVariants, type buttonColors } from "./styles";
 
 interface LinkProps {
   href: string;
@@ -20,8 +19,6 @@ interface LinkProps {
   children: ReactNode;
   className?: string;
 }
-
-export type buttonColors = VariantProps<typeof linkButtonVariants>["color"];
 
 const linkButtonVariants = buttonVariants(
   "text-sm rounded-xl px-7 py-2 font-medium text-gray-200 md:text-base md:py-3 md:mt-3",

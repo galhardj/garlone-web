@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
 export const buttonVariants = (baseStyle: string) =>
   cva(baseStyle, {
@@ -14,3 +14,6 @@ export const buttonVariants = (baseStyle: string) =>
       color: "yellow",
     },
   });
+
+const _buttonVariants = buttonVariants("");
+export type buttonColors = VariantProps<typeof _buttonVariants>["color"];
