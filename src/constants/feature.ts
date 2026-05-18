@@ -1,7 +1,23 @@
 import { FeatureProps } from "@/src/components/common/Feature";
 
-export const FEATURE_RECRUITMENT: FeatureProps = {
+export const FEATURE_FEEDBACK: FeatureProps = {
   position: "left",
+  image: {
+    src: "/images/stars-feedback.webp",
+    alt: "Feedback Stars",
+  },
+  title: "We want your feedback!",
+  description:
+    "Do we make you smile, or is there somewhere we can improve? Take our quick survey, and you could win a £50 Pret gift card.",
+  button: {
+    label: "Have a say",
+    href: "https://support.google.com/",
+    buttonColor: "transparent",
+  },
+};
+
+export const FEATURE_RECRUITMENT: FeatureProps = {
+  position: "right",
   image: {
     src: "/images/colleagues-work.webp",
     alt: "Season Sip Banner",
@@ -9,10 +25,15 @@ export const FEATURE_RECRUITMENT: FeatureProps = {
   title: "Welcome back, Pumpkin Spice Latte",
   description:
     "It's the sip you've been waiting for all year. Our Pumpkin Spice Latte brings autumn to life in every cup.",
+  button: {
+    label: "Submit here",
+    href: "http://linkedin.com/",
+    buttonColor: "transparent",
+  },
 };
 
 export const FEATURE_CHARITY: FeatureProps = {
-  position: "right",
+  position: "left",
   image: {
     src: "/images/foundation.webp",
     alt: "Foundation",

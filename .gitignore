@@ -2,5 +2,14 @@
 /.next/
 coverage/
 settings.local.json
+
+#storybook
 storybook-static
 storybook.log
+
+/.vscode
+
+# agents
+/.agents
+/.claude
+skills-lock.json
