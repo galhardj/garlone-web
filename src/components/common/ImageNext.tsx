@@ -10,7 +10,6 @@ type ImageNextProps = {
   sizes?: ImageProps["sizes"];
 };
 
-// TODO: consider; div wrapping, 'sizes' att
 const ImageNext = ({
   className,
   src,
@@ -29,15 +28,3 @@ const ImageNext = ({
 };
 
 export default ImageNext;
-
-// export type ImageProps = {
-//   sources?: Partial<{ [_T in ScreenNames]: string }>;
-//   img: Img;
-//   imageWidths?: object;
-//   defaultWidth?: number;
-//   priority?: boolean;
-//   ariaHidden?: boolean;
-//   alt?: string;
-//   useProductWrapper?: boolean;
-//   objectFit?: ImgElementStyle["objectFit"];
-// };

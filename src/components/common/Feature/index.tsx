@@ -1,3 +1,4 @@
+import ImageNext from "@/src/components/common/ImageNext";
 import { featureVariants, type featurePositions } from "./styles";
 import { Link, type buttonColors } from "@/src/components/common/Button";
 
@@ -26,15 +27,16 @@ const Feature = ({
   button,
 }: FeatureProps) => {
   // TODO: Component to consider:
-  // - NextImage
   // - Heading
   return (
     <section className={featureVariants({ position })}>
-      <figure className="aspect-square md:w-2/5">
-        <img
-          className="block h-full w-full object-cover"
+      <figure className="relative aspect-square h-full w-full md:w-2/5">
+        <ImageNext
           src={image.src}
           alt={image.alt}
+          className="object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, 45vw"
         />
       </figure>
       <div className="flex flex-col items-start justify-center gap-2 text-justify leading-6 md:w-3/5 md:gap-5">
