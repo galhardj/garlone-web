@@ -59,6 +59,8 @@ const ProductDetail = ({
             src={product.gifs[slideIndex]}
             alt={product.name}
             className="object-contain"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
           />
           <IconButton category="chevronLeft" onClick={slidehandler("prev")}>
             <ChevronLeft />

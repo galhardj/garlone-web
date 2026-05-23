@@ -18,7 +18,6 @@ const Hero = ({
           alt={image.alt}
           className="object-cover"
           priority
-          sizes="100vw"
         />
       </div>
 

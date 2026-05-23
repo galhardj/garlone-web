@@ -41,7 +41,13 @@ const ProductItem = ({
         onClick={() => selecthandler(name)}
       >
         <figure className="relative h-56">
-          <ImageNext src={image} alt={name} className="object-contain" />
+          <ImageNext
+            src={image}
+            alt={name}
+            className="object-contain"
+            fill
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 18vw"
+          />
         </figure>
         <ProductCategory />
         <p className="w-full border-t-2 py-2 text-center text-2xl font-bold">
