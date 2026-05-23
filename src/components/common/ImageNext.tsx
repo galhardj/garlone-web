@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from "next/image";
+import { cn } from "@/src/lib/utils/mergeTailwind";
 
 type ImageNextProps = {
   src: string;
@@ -10,12 +11,18 @@ type ImageNextProps = {
 };
 
 // TODO: consider; div wrapping, 'sizes' att
-const ImageNext = ({ src, fill = true, ...props }: ImageNextProps) => {
+const ImageNext = ({
+  className,
+  src,
+  fill = true,
+  ...props
+}: ImageNextProps) => {
   return (
     <Image
       src={src}
       fill={fill}
       unoptimized={src.endsWith(".gif")}
+      className={cn(className, "object-center")}
       {...props}
     />
   );

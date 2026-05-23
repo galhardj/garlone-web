@@ -16,8 +16,7 @@ const Hero = ({
         <ImageNext
           src={image.src}
           alt={image.alt}
-          fill
-          className="object-cover object-center"
+          className="object-cover"
           priority
           sizes="100vw"
         />

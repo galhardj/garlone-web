@@ -40,7 +40,7 @@ const ProductItem = ({
         className="flex w-full flex-col gap-3"
         onClick={() => selecthandler(name)}
       >
-        <figure className="relative h-56 w-full">
+        <figure className="relative h-56">
           <ImageNext src={image} alt={name} className="object-contain" />
         </figure>
         <ProductCategory />
