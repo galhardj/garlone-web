@@ -4,7 +4,7 @@ import { cn } from "@/src/lib/utils/mergeTailwind";
 type ImageNextProps = {
   src: string;
   alt: string;
-  className?: string;
+  className?: "object-cover" | "object-contain";
   fill?: boolean;
   priority?: boolean;
   sizes?: ImageProps["sizes"];
