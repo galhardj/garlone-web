@@ -60,7 +60,7 @@ const ProductDetail = ({
             alt={product.name}
             className="object-contain"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+            sizes="halfWidth"
           />
           <IconButton category="chevronLeft" onClick={slidehandler("prev")}>
             <ChevronLeft />

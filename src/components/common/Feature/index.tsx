@@ -36,7 +36,7 @@ const Feature = ({
           alt={image.alt}
           className="object-cover"
           fill
-          sizes="(max-width: 768px) 100vw, 45vw"
+          sizes="halfWidth"
         />
       </figure>
       <div className="flex flex-col items-start justify-center gap-2 text-justify leading-6 md:w-3/5 md:gap-5">
