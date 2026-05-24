@@ -54,11 +54,13 @@ const ProductDetail = ({
         onClick={(e) => e.stopPropagation()}
         className="my-auto flex h-max w-full max-w-3xl flex-col items-center gap-20 rounded-2xl border-6 border-gray-400 bg-gray-50 p-10 md:flex-row"
       >
-        <figure className="relative flex aspect-square w-3/4 flex-1 items-center md:w-auto">
+        <figure className="relative aspect-square w-3/4 flex-1 md:w-auto">
           <ImageNext
             src={product.gifs[slideIndex]}
             alt={product.name}
-            className="h-full w-full rounded-sm object-contain"
+            className="object-contain"
+            fill
+            sizes="halfWidth"
           />
           <IconButton category="chevronLeft" onClick={slidehandler("prev")}>
             <ChevronLeft />
