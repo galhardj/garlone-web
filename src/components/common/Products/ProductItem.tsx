@@ -1,5 +1,3 @@
-"use client";
-
 import ImageNext from "@/src/components/common/ImageNext";
 import { cn } from "@/src/lib/utils/mergeTailwind";
 import { typeColor } from "@/src/constants/products";

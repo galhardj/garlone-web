@@ -26,8 +26,6 @@ const Feature = ({
   richText,
   button,
 }: FeatureProps) => {
-  // TODO: Component to consider:
-  // - Heading
   return (
     <section className={featureVariants({ position })}>
       <figure className="relative aspect-square h-full w-full md:w-2/5">
