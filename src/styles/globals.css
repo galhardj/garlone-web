@@ -1,28 +1,12 @@
 @import "tailwindcss";
-@import "./styles/headings.css";
+@import "./headings.css";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 @plugin "daisyui";
 
-/* Base CSS variables or resets can go here if needed */
-html,
-body,
-#__next {
-  height: 100%;
-}
-
-body {
-  @apply bg-white text-gray-900 antialiased;
-}
-
-/* TODO: consider remove this */
-main > section {
-  max-width: 64rem; /* var(--container-5xl) 64rem = 1024px */
-  align-items: center; /* vertical centering of image + text */
-  justify-content: center; /* center children horizontally inside the banner */
-  margin: 0 auto; /* center this container within its parent */
-  @apply px-8 py-12;
+@theme {
+  --font-family-webby: var(--font-family-webby);
 }
 
 @theme inline {
@@ -133,10 +117,33 @@ main > section {
 }
 
 @layer base {
+  /* Base CSS variables or resets can go here if needed */
+  html,
+  body,
+  #__next {
+    height: 100%;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
+
+  /* TODO: consider refactor this */
+  main > section {
+    max-width: 64rem; /* var(--container-5xl) 64rem = 1024px */
+    align-items: center; /* vertical centering of image + text */
+    justify-content: center; /* center children horizontally inside the banner */
+    margin: 0 auto; /* center this container within its parent */
+    @apply px-8 py-12;
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
 }

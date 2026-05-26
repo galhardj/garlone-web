@@ -18,7 +18,7 @@ export default async function Page() {
 
   return (
     <>
-      <BannerLegacy />
+      {/* <BannerLegacy /> */}
       <Feature
         position={FEATURE_FEEDBACK.position}
         image={FEATURE_FEEDBACK.image}

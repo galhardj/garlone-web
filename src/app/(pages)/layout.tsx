@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { webbyFontFamily } from "@/src/styles";
 import "@/src/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -12,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${webbyFontFamily.variable}`}>
+      <body className="font-family-webby text-foreground antialiased">
+        {children}
+      </body>
     </html>
   );
 }
