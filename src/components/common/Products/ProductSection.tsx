@@ -108,7 +108,6 @@ const ProductSection = ({
     );
   };
 
-  // TODO: adding the reset button for product.filter; SearchBox, SortItems
   return (
     <ContainerBlock type="standard-block">
       <div className="flex flex-col items-center gap-6">
