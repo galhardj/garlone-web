@@ -1,7 +1,7 @@
 import BannerLegacy from "@/src/components/mock-model/BannerLegacy";
 import Feature from "@/src/components/common/Feature";
 import Accordion from "@/src/components/common/Accordion";
-import Form from "@/src/components/common/Forms/Contact/Contact";
+import Form from "@/src/components/common/Forms/Contact";
 import { FEATURE_RECRUITMENT } from "@/src/constants/feature";
 import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
