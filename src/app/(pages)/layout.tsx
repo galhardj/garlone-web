@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Symbols } from "next/font/google";
+import { webbyFontFamily } from "@/src/styles";
 import "@/src/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "My Webby",
   description: "A minimal Next.js homepage with static content",
 };
-
-const webbyFontFamily = Noto_Sans_Symbols({
-  subsets: ["latin"],
-  variable: "--font-family-webby",
-});
 
 export default function RootLayout({
   children,
