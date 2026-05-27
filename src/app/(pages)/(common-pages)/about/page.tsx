@@ -9,7 +9,7 @@ import { FORM } from "@/src/constants/form";
 export default function Page() {
   return (
     <>
-      <BannerLegacy />
+      {/* <BannerLegacy /> */}
       <Feature
         position={FEATURE_RECRUITMENT.position}
         image={FEATURE_RECRUITMENT.image}
