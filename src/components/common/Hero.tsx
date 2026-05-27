@@ -1,5 +1,5 @@
 import ImageNext from "@/src/components/common/ImageNext";
-import { Link } from "@/src/components/common/Button";
+import { LinkButton } from "@/src/components/common/Button";
 import { MoveRight } from "lucide-react";
 import { HeroBannerProps } from "@/src/type/props";
 
@@ -36,13 +36,13 @@ const Hero = ({
               <p className="mb-10 max-w-lg text-base leading-relaxed font-light text-amber-900/80 lg:text-lg">
                 {description}
               </p>
-              <Link
+              <LinkButton
                 href={link.url}
                 className="relative inline-flex items-center gap-2 rounded-full bg-amber-400 px-8 py-4 text-base font-semibold text-amber-950 shadow-lg shadow-amber-400/30 transition-all duration-300 hover:scale-[1.03] hover:bg-amber-500 hover:shadow-amber-500/40 active:scale-[0.98]"
               >
                 {link.text}
                 <MoveRight />
-              </Link>
+              </LinkButton>
             </div>
           </div>
         </div>
