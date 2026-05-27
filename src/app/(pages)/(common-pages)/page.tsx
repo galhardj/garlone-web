@@ -2,6 +2,7 @@ import BannerLegacy from "@/src/components/mock-model/BannerLegacy";
 import Feature from "@/src/components/common/Feature";
 import Accordion from "@/src/components/common/Accordion";
 import Form from "@/src/components/common/Forms/Contact";
+import Hero from "@/src/components/common/Hero";
 import {
   FEATURE_RECRUITMENT,
   FEATURE_CHARITY,
@@ -11,6 +12,7 @@ import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { fetchContentful } from "@/src/lib/api/contentful";
+import { HERO } from "@/src/constants/feature";
 
 export default async function Page() {
   // TODO: to create domain/contentful.ts to process api response, refer; src/components/common/Products/ProductSectionWrapper.tsx
@@ -19,6 +21,13 @@ export default async function Page() {
   return (
     <>
       {/* <BannerLegacy /> */}
+      <Hero
+        image={HERO.image}
+        title={HERO.title}
+        subtitle={HERO.subtitle}
+        description={HERO.description}
+        link={HERO.link}
+      />
       <Feature
         position={FEATURE_FEEDBACK.position}
         image={FEATURE_FEEDBACK.image}
