@@ -1,10 +1,40 @@
 "use client";
 
 import { useState } from "react";
-import AccordionItem from "@/src/components/common/AccordionItem";
-import type { Accordion } from "@/src/type/content";
 
-const Accordion = ({ title, accordions }: Accordion) => {
+interface AccordionProps {
+  title?: string;
+  accordions: AccordionItem[];
+}
+
+interface AccordionItem {
+  id: number;
+  summary: string;
+  description: string;
+}
+
+interface AccordionItemProps extends AccordionItem {
+  openItem: boolean;
+  onItemClick: (id: number) => void;
+}
+
+const AccordionItem = ({
+  id,
+  summary,
+  description,
+  openItem,
+  onItemClick,
+}: AccordionItemProps) => {
+  // TODO: change to onToggle
+  return (
+    <details className="py-4" onClick={() => onItemClick(id)} open={openItem}>
+      <summary>{summary}</summary>
+      <p>{description}</p>
+    </details>
+  );
+};
+
+const Accordion = ({ title, accordions }: AccordionProps) => {
   const [openItem, setOpenItem] = useState<null | number>(null);
 
   const openAccordionItemHandler = (id: number) => {
