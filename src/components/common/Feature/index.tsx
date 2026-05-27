@@ -1,6 +1,6 @@
 import ImageNext from "@/src/components/common/ImageNext";
 import { featureVariants, type featurePositions } from "./styles";
-import { Link, type buttonColors } from "@/src/components/common/Button";
+import { LinkButton, type buttonColors } from "@/src/components/common/Button";
 
 export type FeatureProps = {
   position: featurePositions;
@@ -41,13 +41,13 @@ const Feature = ({
         <h2 className="text-left">{title}</h2>
         {richText || <p className="whitespace-pre-line">{description}</p>}
         {button && (
-          <Link
+          <LinkButton
             href={button.href}
             buttonColor={button.buttonColor}
             className="self-stretch md:self-start"
           >
             {button.label}
-          </Link>
+          </LinkButton>
         )}
       </div>
     </section>

@@ -20,7 +20,7 @@ interface LinkProps {
   className?: string;
 }
 
-const AppLink = ({ href, buttonColor, className, children }: LinkProps) => {
+const LinkButton = ({ href, buttonColor, className, children }: LinkProps) => {
   //SSR compatibility — window API doesn't exist in server
   const hostOrigin =
     typeof window !== "undefined" ? window.location.origin : "";
@@ -62,4 +62,4 @@ const AppLink = ({ href, buttonColor, className, children }: LinkProps) => {
   }
 };
 
-export default AppLink;
+export default LinkButton;
