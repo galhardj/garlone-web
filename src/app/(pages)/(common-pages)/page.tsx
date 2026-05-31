@@ -1,4 +1,3 @@
-import BannerLegacy from "@/src/components/mock-model/BannerLegacy";
 import Feature from "@/src/components/common/Feature";
 import Accordion from "@/src/components/common/Accordion";
 import Form from "@/src/components/common/Forms/Contact";
@@ -20,7 +19,6 @@ export default async function Page() {
 
   return (
     <>
-      {/* <BannerLegacy /> */}
       <Hero
         image={HERO.image}
         title={HERO.title}
