@@ -1,4 +1,3 @@
-import BannerLegacy from "@/src/components/mock-model/BannerLegacy";
 import Feature from "@/src/components/common/Feature";
 import Accordion from "@/src/components/common/Accordion";
 import Form from "@/src/components/common/Forms/Contact";
@@ -9,7 +8,6 @@ import { FORM } from "@/src/constants/form";
 export default function Page() {
   return (
     <>
-      <BannerLegacy />
       <Feature
         position={FEATURE_RECRUITMENT.position}
         image={FEATURE_RECRUITMENT.image}

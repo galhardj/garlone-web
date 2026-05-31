@@ -43,65 +43,67 @@ export default async function NavigationMenuBar({
   const itemStyle = cn(navigationMenuTriggerStyle(), styles.item);
 
   return (
-    <NavigationMenu
-      className={cn("mx-auto px-6 py-6", styles.container, className)}
-    >
-      <NavigationMenuList className="flex-wrap">
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={itemStyle}>
-            <Link href="/">Home</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={itemStyle}>
-            <Link href="/about">About</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={itemStyle}>
-            <Link href="/products">Products</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="hidden md:block">
-          <NavigationMenuTrigger className={styles.item}>
-            Component work
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="bg-white">
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/css-framework">CSS plugin pages</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/ui-in-the-work">UI in the work</Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        {!!loginUser && (
+    <div className="bg-background absolute top-0 z-50 w-full">
+      <NavigationMenu
+        className={cn("mx-auto py-6", styles.container, className)}
+      >
+        <NavigationMenuList className="flex-wrap">
           <NavigationMenuItem>
             <NavigationMenuLink asChild className={itemStyle}>
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="/">Home</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
-        )}
-        <NavigationMenuItem>
-          {!!loginUser ? (
-            <LogoutButton className={itemStyle} />
-          ) : (
+          <NavigationMenuItem>
             <NavigationMenuLink asChild className={itemStyle}>
-              <Link href="/login">Login</Link>
+              <Link href="/about">About</Link>
             </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink asChild className={itemStyle}>
+              <Link href="/products">Products</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem className="hidden md:block">
+            <NavigationMenuTrigger className={styles.item}>
+              Component work
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="bg-white">
+              <ul className="grid w-[200px] gap-4">
+                <li>
+                  <NavigationMenuLink
+                    asChild
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    <Link href="/css-framework">CSS plugin pages</Link>
+                  </NavigationMenuLink>
+                  <NavigationMenuLink
+                    asChild
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    <Link href="/ui-in-the-work">UI in the work</Link>
+                  </NavigationMenuLink>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          {!!loginUser && (
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild className={itemStyle}>
+                <Link href="/dashboard">Dashboard</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           )}
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+          <NavigationMenuItem>
+            {!!loginUser ? (
+              <LogoutButton className={itemStyle} />
+            ) : (
+              <NavigationMenuLink asChild className={itemStyle}>
+                <Link href="/login">Login</Link>
+              </NavigationMenuLink>
+            )}
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 }

@@ -10,7 +10,6 @@ export default function Page() {
       <Hero
         image={HERO.image}
         title={HERO.title}
-        subtitle={HERO.subtitle}
         description={HERO.description}
         link={HERO.link}
       />
