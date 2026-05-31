@@ -1,18 +1,29 @@
 import ImageNext from "@/src/components/common/ImageNext";
 import { LinkButton } from "@/src/components/common/Button";
-import { MoveRight } from "lucide-react";
-import { HeroBannerProps } from "@/src/type/props";
+import { cn } from "@/src/lib/utils/mergeTailwind";
 
-const Hero = ({
-  image,
-  title,
-  subtitle,
-  description,
-  link,
-}: HeroBannerProps) => {
+interface HeroBannerProps {
+  image: {
+    src: string;
+    alt: string;
+  };
+  title: string;
+  description: string;
+  link: {
+    url: string;
+    text: string;
+  };
+}
+
+const Hero = ({ image, title, description, link }: HeroBannerProps) => {
   return (
-    <div className="relative h-[57vh] w-full lg:h-screen">
-      <div className="absolute inset-0 max-h-[37vh] lg:max-h-[75vh]">
+    <div
+      className={cn(
+        "relative w-full lg:mb-12",
+        "h-screen md:h-[58vh] lg:h-screen",
+      )}
+    >
+      <div className="absolute inset-0 max-h-[47vh] md:max-h-[34vh] lg:max-h-[75vh]">
         <ImageNext
           src={image.src}
           alt={image.alt}
@@ -21,10 +32,23 @@ const Hero = ({
         />
       </div>
       <div className="absolute bottom-8 left-1/2 w-[80%] -translate-x-1/2">
-        <div className="bg-background absolute -inset-12" />
-        <div className="text-foreground relative flex flex-col items-center gap-4">
+        <div className="bg-background absolute -inset-5 md:-inset-10 lg:-inset-12" />
+        <div
+          className={cn(
+            "relative",
+            "text-foreground text-center",
+            "flex flex-col place-items-center content-center justify-center gap-4",
+          )}
+        >
           <h1>{title}</h1>
-          <p className="max-w-2xl text-center lg:max-w-lg">{description}</p>
+          <p
+            className={cn(
+              "max-w-2xl whitespace-pre-line",
+              "flex min-h-60 items-center md:min-h-20",
+            )}
+          >
+            {description}
+          </p>
           <LinkButton
             href={link.url}
             buttonColor="transparent"
