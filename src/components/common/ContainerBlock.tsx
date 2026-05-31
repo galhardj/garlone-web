@@ -1,5 +1,9 @@
 import { cn } from "@/src/lib/utils/mergeTailwind";
-import { ContainerBlockProps } from "@/src/type/props";
+
+interface ContainerBlockProps {
+  children: React.ReactNode;
+  type: "standard-block" | "screen-centered";
+}
 
 const ContainerBlock = ({ children, type }: ContainerBlockProps) => {
   return (
