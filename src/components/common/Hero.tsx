@@ -15,6 +15,7 @@ interface HeroBannerProps {
   };
 }
 
+// TODO: consider having component for Text section (i.e., heading, paragraph, button — like Feature)
 const Hero = ({ image, title, description, link }: HeroBannerProps) => {
   return (
     <div
