@@ -1,4 +1,4 @@
-import { fetcher } from "@/src/lib/api/fetcher";
+import { fetcher } from "@/src/lib/fetcher";
 import { SSR } from "@/src/constants/rendering-type";
 import {
   PokemonList,
