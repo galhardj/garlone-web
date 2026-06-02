@@ -13,7 +13,7 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@/src/components/mock-model/shadcn",
-    "utils": "@/src/lib/utils/mergeTailwind",
+    "utils": "@/src/lib/utils",
     "ui": "@/src/components/mock-model/shadcn/ui",
     "lib": "@/src/lib",
     "hooks": "@/src/hooks"

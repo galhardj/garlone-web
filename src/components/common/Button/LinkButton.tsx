@@ -10,7 +10,7 @@
 
 import Link from "next/link";
 import { ReactNode } from "react";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 import { buttonVariants, type buttonColors } from "./styles";
 
 interface LinkProps {

@@ -1,19 +1,19 @@
-import { cn } from "@/src/lib/utils/mergeTailwind"
-import { Button } from "@/src/components/mock-model/shadcn/ui/button"
+import { cn } from "@/src/lib/utils";
+import { Button } from "@/src/components/mock-model/shadcn/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/mock-model/shadcn/ui/card"
+} from "@/src/components/mock-model/shadcn/ui/card";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/src/components/mock-model/shadcn/ui/field"
-import { Input } from "@/src/components/mock-model/shadcn/ui/input"
+} from "@/src/components/mock-model/shadcn/ui/field";
+import { Input } from "@/src/components/mock-model/shadcn/ui/input";
 
 export function LoginForm({
   className,
@@ -66,5 +66,5 @@ export function LoginForm({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

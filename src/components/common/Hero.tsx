@@ -1,6 +1,6 @@
 import ImageNext from "@/src/components/common/ImageNext";
 import { LinkButton } from "@/src/components/common/Button";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 
 interface HeroBannerProps {
   image: {

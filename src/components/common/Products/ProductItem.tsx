@@ -1,5 +1,5 @@
 import ImageNext from "@/src/components/common/ImageNext";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 import { typeColor } from "@/src/constants/products";
 import { Dispatch } from "react";
 

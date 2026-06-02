@@ -1,6 +1,6 @@
 import React from "react";
 import { type VariantProps } from "class-variance-authority";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 import { iconVariants } from "./styles";
 
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

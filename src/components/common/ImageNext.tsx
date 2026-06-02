@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 
 type ImageNextProps = {
   src: string;
