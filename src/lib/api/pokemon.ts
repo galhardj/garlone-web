@@ -1,5 +1,4 @@
-import { fetcher } from "@/src/lib/fetcher";
-import { SSR } from "@/src/constants/rendering-type";
+import { httpClient, renderConfig } from "@/src/lib/http-client";
 import {
   PokemonList,
   PokemonDetailApi,
@@ -9,9 +8,9 @@ import {
 } from "@/src/type/pokemon";
 
 const getPokemonList = async (): Promise<PokemonList[]> => {
-  const { results } = await fetcher<PokeApi>(
+  const { results } = await httpClient<PokeApi>(
     "https://pokeapi.co/api/v2/pokemon?limit=50",
-    SSR,
+    renderConfig.SSR,
   );
 
   return results;
@@ -23,7 +22,10 @@ export const getPokemonData = async (): Promise<PokemonData> => {
 
   const pokemonDetailList = await Promise.all(
     pokemonList.map(async ({ url }: PokemonList) => {
-      const pokemonDetail = await fetcher<PokemonDetailApi>(url, SSR);
+      const pokemonDetail = await httpClient<PokemonDetailApi>(
+        url,
+        renderConfig.SSR,
+      );
 
       return {
         name: pokemonDetail.name,
