@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSupabaseUser } from "@/src/lib/supabase";
+import { getAuthUser } from "@/src/lib/supabase";
 import { cn } from "@/src/lib/utils";
 
 // import { useIsMobile } from "@/hooks/use-mobile"
@@ -38,7 +38,7 @@ export default async function NavigationMenuBar({
   className,
 }: NavigationMenuBarProps) {
   //   const isMobile = useIsMobile()
-  const loginUser = await getSupabaseUser();
+  const authUser = await getAuthUser();
   const styles = navBarVariants[variant];
   const itemStyle = cn(navigationMenuTriggerStyle(), styles.item);
 
@@ -86,7 +86,7 @@ export default async function NavigationMenuBar({
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          {!!loginUser && (
+          {!!authUser && (
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={itemStyle}>
                 <Link href="/dashboard">Dashboard</Link>
@@ -94,7 +94,7 @@ export default async function NavigationMenuBar({
             </NavigationMenuItem>
           )}
           <NavigationMenuItem>
-            {!!loginUser ? (
+            {!!authUser ? (
               <LogoutButton className={itemStyle} />
             ) : (
               <NavigationMenuLink asChild className={itemStyle}>

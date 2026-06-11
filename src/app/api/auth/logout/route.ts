@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabaseServer } from "@/src/lib/supabase";
+import { getSupabaseClient } from "@/src/lib/supabase";
 
 export async function POST() {
   try {
-    const supabase = await supabaseServer.withSetCookies();
+    const supabase = await getSupabaseClient({ mutableCookies: true });
     const { error } = await supabase.auth.signOut();
 
     if (error) {

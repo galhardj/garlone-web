@@ -1,11 +1,10 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { getSupabaseUser } from "@/src/lib/supabase";
+import { NextResponse, type NextRequest } from "next/server";
+import { getAuthUser } from "@/src/lib/supabase";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const user = await getSupabaseUser();
+  const authUser = await getAuthUser();
 
   const withDebugHeaders = (response: NextResponse) => {
     response.headers.set("x-middleware-executed", "true");
@@ -13,13 +12,13 @@ export async function middleware(request: NextRequest) {
     return response;
   };
 
-  if (pathname.startsWith("/login") && user) {
+  if (pathname.startsWith("/login") && authUser) {
     return withDebugHeaders(
       NextResponse.redirect(new URL("/dashboard", request.url)),
     );
   }
 
-  if (pathname.startsWith("/dashboard") && !user) {
+  if (pathname.startsWith("/dashboard") && !authUser) {
     return withDebugHeaders(
       NextResponse.redirect(new URL("/login", request.url)),
     );
