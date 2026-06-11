@@ -1,6 +1,8 @@
 // TODO: Check this out for best practice sample; https://dev.to/dmitrevnik/fetch-wrapper-for-nextjs-a-deep-dive-into-best-practices-53dh
 
-export const renderConfig: Record<string, RequestInit> = {
+type RenderMode = "SSR" | "SSG" | "ISR";
+
+const renderConfig: Record<RenderMode, RequestInit> = {
   SSR: {
     cache: "no-store" as RequestCache,
   },
@@ -10,12 +12,27 @@ export const renderConfig: Record<string, RequestInit> = {
   ISR: { next: { revalidate: 60 } },
 };
 
-export const httpClient = async <T>(
+type CustomRequestInit = RequestInit & {
+  method: "GET" | "POST";
+  renderMode?: RenderMode;
+};
+
+const httpClient = async <T>(
   url: string,
-  config: RequestInit,
+  { renderMode, ...config }: CustomRequestInit,
 ): Promise<T> => {
   try {
-    const res = await fetch(url, config);
+    const requiresBody = ["POST", "PUT", "PATCH"].includes(config.method);
+    const updatedConfig = {
+      ...config,
+      ...(renderMode && renderConfig[renderMode]),
+      headers: {
+        ...config.headers,
+        ...(requiresBody && { "Content-Type": "application/json" }),
+      },
+    };
+
+    const res = await fetch(url, updatedConfig);
 
     if (!res.ok) {
       throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
@@ -27,3 +44,5 @@ export const httpClient = async <T>(
     throw err;
   }
 };
+
+export default httpClient;

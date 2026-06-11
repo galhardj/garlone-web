@@ -1,4 +1,4 @@
-import { httpClient, renderConfig } from "@/src/lib/http-client";
+import httpClient from "@/src/lib/http-client";
 import {
   PokemonList,
   PokemonDetailApi,
@@ -10,7 +10,7 @@ import {
 const getPokemonList = async (): Promise<PokemonList[]> => {
   const { results } = await httpClient<PokeApi>(
     "https://pokeapi.co/api/v2/pokemon?limit=50",
-    renderConfig.SSR,
+    { method: "GET", renderMode: "SSR" },
   );
 
   return results;
@@ -22,10 +22,10 @@ export const getPokemonData = async (): Promise<PokemonData> => {
 
   const pokemonDetailList = await Promise.all(
     pokemonList.map(async ({ url }: PokemonList) => {
-      const pokemonDetail = await httpClient<PokemonDetailApi>(
-        url,
-        renderConfig.SSR,
-      );
+      const pokemonDetail = await httpClient<PokemonDetailApi>(url, {
+        method: "GET",
+        renderMode: "SSR",
+      });
 
       return {
         name: pokemonDetail.name,
