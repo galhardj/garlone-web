@@ -2,6 +2,11 @@
 
 type RenderMode = "SSR" | "SSG" | "ISR";
 
+type CustomRequestInit = RequestInit & {
+  method: "GET" | "POST";
+  renderMode?: RenderMode;
+};
+
 const renderConfig: Record<RenderMode, RequestInit> = {
   SSR: {
     cache: "no-store" as RequestCache,
@@ -10,11 +15,6 @@ const renderConfig: Record<RenderMode, RequestInit> = {
     cache: "force-cache" as RequestCache,
   },
   ISR: { next: { revalidate: 60 } },
-};
-
-type CustomRequestInit = RequestInit & {
-  method: "GET" | "POST";
-  renderMode?: RenderMode;
 };
 
 const httpClient = async <T>(
@@ -40,8 +40,11 @@ const httpClient = async <T>(
 
     return res.json();
   } catch (err) {
-    console.error("API error:", err);
-    throw err;
+    const refinedErr =
+      err instanceof Error ? err : new Error("Request failed", { cause: err });
+
+    console.error("API error:", refinedErr);
+    throw refinedErr;
   }
 };
 
