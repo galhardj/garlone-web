@@ -12,7 +12,7 @@ export async function POST() {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.error("Logout error:", err);
+    console.error("Logout error: ", err);
     return NextResponse.json(
       { error: "Unexpected error during logout" },
       { status: 500 },

@@ -7,6 +7,14 @@ type CustomRequestInit = RequestInit & {
   renderMode?: RenderMode;
 };
 
+class HttpError extends Error {
+  status: number;
+  constructor(message: string, status: number, options?: ErrorOptions) {
+    super(message, options);
+    this.status = status;
+  }
+}
+
 const renderConfig: Record<RenderMode, RequestInit> = {
   SSR: {
     cache: "no-store" as RequestCache,
@@ -15,6 +23,17 @@ const renderConfig: Record<RenderMode, RequestInit> = {
     cache: "force-cache" as RequestCache,
   },
   ISR: { next: { revalidate: 60 } },
+};
+
+export const refineCatchedErr = (err: unknown, id?: string) => {
+  const refinedError =
+    err instanceof HttpError
+      ? err
+      : new HttpError("Request failed", 500, { cause: err });
+  const apiContext = id ? `[${id}] ` : "";
+
+  console.error(`${apiContext}API error: `, refinedError);
+  return refinedError;
 };
 
 const httpClient = async <T>(
@@ -33,18 +52,16 @@ const httpClient = async <T>(
     };
 
     const res = await fetch(url, updatedConfig);
-
     if (!res.ok) {
-      throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
+      throw new HttpError(
+        `Fetch failed: ${res.status} ${res.statusText}`,
+        res.status,
+      );
     }
 
     return res.json();
   } catch (err) {
-    const refinedErr =
-      err instanceof Error ? err : new Error("Request failed", { cause: err });
-
-    console.error("API error:", refinedErr);
-    throw refinedErr;
+    throw refineCatchedErr(err);
   }
 };
 

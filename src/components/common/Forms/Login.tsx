@@ -35,7 +35,7 @@ const LoginForm = () => {
 
       router.push("/about");
     } catch (err) {
-      console.error("Login request failed:", err);
+      console.error("Login request failed: ", err);
       setError(`Unexpected error, with message: ${(err as Error).message}`);
     }
   };
