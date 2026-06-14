@@ -46,20 +46,3 @@ interface BannerFields {
     sys: LinkSys;
   };
 }
-
-interface RichTextDocument {
-  data: Record<string, any>;
-  content: any[]; // RichTextNode
-  nodeType: string; // "document"
-}
-
-// interface RichTextNode {
-//   data: Record<string, any>;
-//   content: Array<{
-//     data: Record<string, any>;
-//     marks: any[];
-//     value: string;
-//     nodeType: string; // "text"
-//   }>;
-//   nodeType: string; // "paragraph"
-// }
