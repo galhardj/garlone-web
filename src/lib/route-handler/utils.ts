@@ -5,6 +5,10 @@ export type ApiResponse<T> =
   | { success: true; data: T }
   | { success: false; message: string };
 
+export type ParamsProps = {
+  params: Promise<{ slug: string }>;
+};
+
 export const nextResponseSuccess = <T>(data: T, status = 200) =>
   NextResponse.json({ success: true, data }, { status });
 

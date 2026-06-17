@@ -8,3 +8,16 @@ const ctflOptions = {
 };
 
 const ctflClient = createClient(ctflOptions);
+
+//PAGE
+const CONTENT_TYPE_PAGE = "page";
+const DEFAULT_LOCALE = "en-US";
+const ENTRIES_LEVELS = 3;
+
+export const getPages = async (slug?: string) =>
+  await ctflClient.getEntries({
+    content_type: CONTENT_TYPE_PAGE,
+    locale: DEFAULT_LOCALE,
+    include: ENTRIES_LEVELS,
+    ...(slug && { "fields.slug": slug }),
+  });
