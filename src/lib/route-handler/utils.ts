@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { refineCatchedErr } from "@/src/lib/http-client";
 
-export type ApiResponse<T> =
-  | { success: true; data: T }
-  | { success: false; message: string };
+export type NextRouteSuccess<T> = { success: true; data: T };
 
 export type ParamsProps = {
   params: Promise<{ slug: string }>;
