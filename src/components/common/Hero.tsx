@@ -1,6 +1,8 @@
 import ImageNext from "@/src/components/common/ImageNext";
 import { LinkButton } from "@/src/components/common/Button";
 import { cn } from "@/src/lib/utils";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import type { Document } from "@contentful/rich-text-types";
 
 interface HeroBannerProps {
   image: {
@@ -8,7 +10,7 @@ interface HeroBannerProps {
     alt: string;
   };
   title: string;
-  description: string;
+  description: string | Document;
   link: {
     url: string;
     text: string;
@@ -17,6 +19,11 @@ interface HeroBannerProps {
 
 // TODO: consider having component for Text section (i.e., heading, paragraph, button — like Feature)
 const Hero = ({ image, title, description, link }: HeroBannerProps) => {
+  const isDescString = typeof description === "string";
+  const normalizedDesc = isDescString
+    ? description
+    : documentToReactComponents(description);
+  const Paragraph = isDescString ? "p" : "div";
   return (
     <div
       className={cn(
@@ -42,14 +49,14 @@ const Hero = ({ image, title, description, link }: HeroBannerProps) => {
           )}
         >
           <h1>{title}</h1>
-          <p
+          <Paragraph
             className={cn(
-              "max-w-2xl whitespace-pre-line",
-              "flex min-h-60 items-center md:min-h-20",
+              "max-w-2xl whitespace-pre-line [&_p:not(:last-child)]:mb-3",
+              "flex min-h-60 flex-col items-center md:min-h-20",
             )}
           >
-            {description}
-          </p>
+            {normalizedDesc}
+          </Paragraph>
           <LinkButton
             href={link.url}
             buttonColor="transparent"
