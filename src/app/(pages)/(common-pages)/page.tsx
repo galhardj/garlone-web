@@ -9,7 +9,6 @@ import {
 } from "@/src/constants/feature";
 import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { fetchContentful } from "@/src/lib/api/contentful";
 import { HERO } from "@/src/constants/feature";
 
@@ -36,9 +35,7 @@ export default async function Page() {
         position={contentfulBanner.fields.imagePosition ? "right" : "left"}
         image={FEATURE_RECRUITMENT.image}
         title={contentfulBanner.fields.title}
-        richText={documentToReactComponents(
-          contentfulBanner.fields.description,
-        )}
+        description={contentfulBanner.fields.description}
         button={FEATURE_RECRUITMENT.button}
       />
       <Feature
