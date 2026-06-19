@@ -33,10 +33,7 @@ const LinkButton = ({ href, buttonColor, className, children }: LinkProps) => {
     }
   };
 
-  const style = cn(
-    buttonColor && buttonVariants({ color: buttonColor }),
-    className,
-  );
+  const style = cn(buttonVariants({ color: buttonColor }), className);
 
   if (isExternalUrl(href)) {
     return (
