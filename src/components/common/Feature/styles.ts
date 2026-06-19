@@ -11,7 +11,3 @@ export const featureVariants = cva("flex flex-col gap-8 lg:gap-16", {
     position: "left",
   },
 });
-
-export type featurePositions = NonNullable<
-  VariantProps<typeof featureVariants>["position"]
->;

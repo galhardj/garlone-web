@@ -1,9 +1,10 @@
 import ImageNext from "@/src/components/common/ImageNext";
 import { featureVariants, type featurePositions } from "./styles";
 import { LinkButton, type buttonColors } from "@/src/components/common/Button";
+import { featureVariants } from "./styles";
 
 export type FeatureProps = {
-  position: featurePositions;
+  isImageLeft: boolean;
   image: {
     src: string;
     alt: string;
@@ -19,7 +20,7 @@ export type FeatureProps = {
 };
 
 const Feature = ({
-  position,
+  isImageLeft,
   image,
   title,
   description,
@@ -27,7 +28,9 @@ const Feature = ({
   button,
 }: FeatureProps) => {
   return (
-    <section className={featureVariants({ position })}>
+    <section
+      className={featureVariants({ position: isImageLeft ? "left" : "right" })}
+    >
       <figure className="relative aspect-square h-full w-full md:w-2/5">
         <ImageNext
           src={image.src}
