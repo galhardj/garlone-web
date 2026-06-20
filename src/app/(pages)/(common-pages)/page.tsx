@@ -9,12 +9,12 @@ import {
 } from "@/src/constants/feature";
 import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
-import { fetchContentful } from "@/src/lib/api/contentful";
+import { getThisFeature } from "@/src/lib/contentful";
 import { HERO } from "@/src/constants/feature";
 
 export default async function Page() {
   // TODO: to create domain/contentful.ts to process api response, refer; src/components/common/Products/ProductSectionWrapper.tsx
-  const contentfulBanner = await fetchContentful();
+  const featureContent = await getThisFeature();
 
   return (
     <>
@@ -32,10 +32,10 @@ export default async function Page() {
         button={FEATURE_FEEDBACK.button}
       />
       <Feature
-        isImageLeft={contentfulBanner.fields.isImageLeft}
+        isImageLeft={featureContent.fields.isImageLeft}
         image={FEATURE_RECRUITMENT.image}
-        title={contentfulBanner.fields.title}
-        description={contentfulBanner.fields.description}
+        title={featureContent.fields.title}
+        description={featureContent.fields.description}
         button={FEATURE_RECRUITMENT.button}
       />
       <Feature
