@@ -1,4 +1,5 @@
 import httpClient from "@/src/lib/http-client";
+import { getPages } from "@/src/lib/route-handler/contentful";
 import { Banner } from "@/src/type/contentful";
 
 export const getThisFeature = async () => {
@@ -11,4 +12,10 @@ export const getThisFeature = async () => {
       Authorization: `Bearer ${process.env.CONTENTFUL_TOKEN}`,
     },
   });
+};
+
+export const getStaticPageSlugs = async () => {
+  const allPages = await getPages();
+  const allSlugs = allPages.items.map((page) => page.fields.slug);
+  return allSlugs;
 };

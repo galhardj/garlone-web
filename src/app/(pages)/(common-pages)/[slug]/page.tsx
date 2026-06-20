@@ -1,4 +1,5 @@
 import httpClient from "@/src/lib/http-client";
+import { getStaticPageSlugs } from "@/src/lib/contentful";
 import { NextRouteSuccess } from "@/src/lib/route-handler/utils";
 
 type Props = {
@@ -6,15 +7,8 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const res = await httpClient<NextRouteSuccess<string[]>>(
-    `${process.env.LOCALHOST}/api/contentful/pages/`,
-    {
-      method: "GET",
-      renderMode: "SSR",
-    },
-  );
-
-  const allSlugs = res.data;
+  // TODO: (06/20/26) Consider creating separate backend service with free hosting and allSlugs will be with httpClient
+  const allSlugs = await getStaticPageSlugs();
   return allSlugs.map((slug) => ({ slug }));
 }
 
