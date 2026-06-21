@@ -4,7 +4,7 @@ type RenderMode = "SSR" | "SSG" | "ISR";
 
 type CustomRequestInit = RequestInit & {
   method: "GET" | "POST";
-  renderMode?: RenderMode;
+  renderMode: RenderMode;
 };
 
 class HttpError extends Error {
