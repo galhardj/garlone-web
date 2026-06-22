@@ -6,6 +6,7 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
 export async function generateStaticParams() {
   // TODO: (06/20/26) Consider creating separate backend service with free hosting and allSlugs will be with httpClient
   const allSlugs = await getStaticPageSlugs();
