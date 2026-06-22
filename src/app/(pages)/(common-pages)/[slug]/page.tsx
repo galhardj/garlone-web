@@ -1,8 +1,8 @@
-import httpClient from "@/src/lib/http-client";
-import { getStaticPageSlugs } from "@/src/lib/contentful";
-import { NextRouteSuccess } from "@/src/lib/route-handler/utils";
 import Hero from "@/src/components/common/Hero";
 import Feature from "@/src/components/common/Feature";
+import httpClient from "@/src/lib/http-client";
+import { getStaticPageSlugs } from "@/src/lib/contentful";
+import { type NextRouteSuccess } from "@/src/lib/route-handler/utils";
 
 type Props = {
   params: Promise<{ slug: string }>;
