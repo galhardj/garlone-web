@@ -21,6 +21,7 @@ const ImageNext = ({
   className,
   fill = true,
   sizes,
+  alt,
   ...props
 }: ImageNextProps) => {
   const isLocalImage = src.startsWith("/images/");
@@ -28,6 +29,7 @@ const ImageNext = ({
   return (
     <Image
       src={imagePath}
+      alt={alt ?? ""}
       className={cn(className, "object-center")}
       fill={fill}
       sizes={sizes && imageSizes[sizes]}
