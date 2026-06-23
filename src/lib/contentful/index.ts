@@ -14,8 +14,10 @@ export const getThisFeature = async () => {
   });
 };
 
-export const getStaticPageSlugs = async () => {
+export const getPageSlugs = async () => {
   const allPages = await getPages();
   const allSlugs = allPages.items.map((page) => page.fields.slug);
   return allSlugs;
 };
+
+export const getPageBySlug = async (slug: string) => getPages(slug);
