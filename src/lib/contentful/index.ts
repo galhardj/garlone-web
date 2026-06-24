@@ -1,11 +1,11 @@
 import httpClient from "@/src/lib/http-client";
 import { getPages } from "@/src/lib/route-handler/contentful";
-import { Banner } from "@/src/type/contentful";
+import { ThisFeature } from "@/src/type/contentful/this-feature";
 
 export const getThisFeature = async () => {
   const contentfulBanner = `${process.env.CONTENTFUL_DOMAIN_CDN}/spaces/${process.env.CONTENTFUL_SPACE}/environments/${process.env.CONTENTFUL_ENV_PROD}/entries/3h4tEEKIoBT03odMTANIoK`;
 
-  return await httpClient<Banner>(contentfulBanner, {
+  return await httpClient<ThisFeature>(contentfulBanner, {
     method: "GET",
     renderMode: "SSG",
     headers: {

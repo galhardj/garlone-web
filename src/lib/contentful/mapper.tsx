@@ -1,7 +1,11 @@
 import Hero from "@/src/components/common/Hero";
 import Feature from "@/src/components/common/Feature";
+import {
+  Hero as HeroFields,
+  Feature as FeatureFields,
+} from "@/src/type/contentful/components";
 
-export const MappedHero = ({ fields }: { fields: any }) => {
+export const MappedHero = ({ fields }: { fields: HeroFields }) => {
   const mappedProps = {
     image: {
       src: fields.image.fields.file.url,
@@ -18,7 +22,11 @@ export const MappedHero = ({ fields }: { fields: any }) => {
   return <Hero {...mappedProps} />;
 };
 
-export const MappedFeature = ({ fields }: { fields: any }) => {
+export const MappedFeature = ({
+  fields: { button, ...fields },
+}: {
+  fields: FeatureFields;
+}) => {
   const mappedProps = {
     isImageLeft: fields.isImageLeftSide,
     image: {
@@ -27,10 +35,12 @@ export const MappedFeature = ({ fields }: { fields: any }) => {
     },
     title: fields.title,
     description: fields.description,
-    button: {
-      label: fields.button.fields.label,
-      href: fields.button.fields.url,
-    },
+    ...(button && {
+      button: {
+        label: button.fields.label,
+        href: button.fields.url,
+      },
+    }),
   };
   return <Feature {...mappedProps} />;
 };

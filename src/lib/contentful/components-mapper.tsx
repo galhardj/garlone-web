@@ -1,7 +1,8 @@
 import { Fragment, ComponentType } from "react";
 import { MappedHero, MappedFeature } from "@/src/lib/contentful/mapper";
-// TODO: (06/23/26) Update types 'any' here
-type PageComponentsProps = { components: any };
+import type { ReferenceTo, Components } from "@/src/type/contentful";
+
+type PageComponentsProps = { components: ReferenceTo<Components>[] };
 
 const CONTENT_TYPE_HERO = "heroBanner";
 const CONTENT_TYPE_FEATURE = "featureBanner";

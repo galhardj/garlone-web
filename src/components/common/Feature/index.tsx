@@ -20,7 +20,7 @@ export type FeatureProps = {
 };
 
 const Feature = ({
-  isImageLeft,
+  isImageLeft = true,
   image,
   title,
   description,
