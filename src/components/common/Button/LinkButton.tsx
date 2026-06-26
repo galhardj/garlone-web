@@ -10,7 +10,7 @@
 
 import Link from "next/link";
 import { ReactNode } from "react";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 import { buttonVariants, type buttonColors } from "./styles";
 
 interface LinkProps {
@@ -33,10 +33,7 @@ const LinkButton = ({ href, buttonColor, className, children }: LinkProps) => {
     }
   };
 
-  const style = cn(
-    buttonColor && buttonVariants({ color: buttonColor }),
-    className,
-  );
+  const style = cn(buttonVariants({ color: buttonColor }), className);
 
   if (isExternalUrl(href)) {
     return (

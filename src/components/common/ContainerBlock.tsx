@@ -1,4 +1,4 @@
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 
 interface ContainerBlockProps {
   children: React.ReactNode;

@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabaseServer } from "@/src/lib/api/supabase";
+import { getSupabaseClient } from "@/src/lib/supabase";
 
 export async function POST() {
   try {
-    const supabase = await supabaseServer.withSetCookies();
+    const supabase = await getSupabaseClient({ mutableCookies: true });
     const { error } = await supabase.auth.signOut();
 
     if (error) {
@@ -12,7 +12,7 @@ export async function POST() {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.error("Logout error:", err);
+    console.error("Logout error: ", err);
     return NextResponse.json(
       { error: "Unexpected error during logout" },
       { status: 500 },

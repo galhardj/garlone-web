@@ -1,6 +1,6 @@
 import type { InputProps } from "@/src/type/forms";
 import { forwardRef } from "react";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ id, className, ...props }, ref) => (

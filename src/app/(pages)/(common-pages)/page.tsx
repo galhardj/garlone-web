@@ -9,13 +9,12 @@ import {
 } from "@/src/constants/feature";
 import { ACCORDION_ITEMS } from "@/src/constants/accordion";
 import { FORM } from "@/src/constants/form";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { fetchContentful } from "@/src/lib/api/contentful";
+import { getThisFeature } from "@/src/lib/contentful";
 import { HERO } from "@/src/constants/feature";
 
 export default async function Page() {
   // TODO: to create domain/contentful.ts to process api response, refer; src/components/common/Products/ProductSectionWrapper.tsx
-  const contentfulBanner = await fetchContentful();
+  const featureContent = await getThisFeature();
 
   return (
     <>
@@ -26,23 +25,21 @@ export default async function Page() {
         link={HERO.link}
       />
       <Feature
-        position={FEATURE_FEEDBACK.position}
+        isImageLeftSide={FEATURE_FEEDBACK.isImageLeftSide}
         image={FEATURE_FEEDBACK.image}
         title={FEATURE_FEEDBACK.title}
         description={FEATURE_FEEDBACK.description}
         button={FEATURE_FEEDBACK.button}
       />
       <Feature
-        position={contentfulBanner.fields.imagePosition ? "right" : "left"}
+        isImageLeftSide={featureContent.fields.isImageLeftSide}
         image={FEATURE_RECRUITMENT.image}
-        title={contentfulBanner.fields.title}
-        richText={documentToReactComponents(
-          contentfulBanner.fields.description,
-        )}
+        title={featureContent.fields.title}
+        description={featureContent.fields.description}
         button={FEATURE_RECRUITMENT.button}
       />
       <Feature
-        position={FEATURE_CHARITY.position}
+        isImageLeftSide={FEATURE_CHARITY.isImageLeftSide}
         image={FEATURE_CHARITY.image}
         title={FEATURE_CHARITY.title}
         description={FEATURE_CHARITY.description}

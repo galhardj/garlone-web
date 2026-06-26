@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
-import { cn } from "@/src/lib/utils/mergeTailwind";
+import { cn } from "@/src/lib/utils";
 
 interface LogoutButtonProps {
   className?: string;

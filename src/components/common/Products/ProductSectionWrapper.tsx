@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProductSection from "./ProductSection";
-import { getPokemonData } from "@/src/lib/domain/pokemon";
+import { getPokemonData } from "@/src/lib/api/pokemon";
 import ContainerBlock from "@/src/components/common/ContainerBlock";
 
 async function ProductSectionWithData() {

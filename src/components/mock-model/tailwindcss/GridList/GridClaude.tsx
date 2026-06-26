@@ -10,7 +10,6 @@ const ContactCard = ({
   role: string;
   image: any;
 }) => {
-  console.log("server", typeof window);
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-6 flex items-start justify-between">

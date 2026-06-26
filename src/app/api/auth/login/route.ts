@@ -1,6 +1,5 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { supabaseServer } from "@/src/lib/api/supabase";
+import { NextResponse, type NextRequest } from "next/server";
+import { getSupabaseClient } from "@/src/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,7 +12,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const supabase = await supabaseServer.withSetCookies();
+    const supabase = await getSupabaseClient({ mutableCookies: true });
 
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -26,7 +25,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ user: data.user }, { status: 200 });
   } catch (err) {
-    console.error("Login error:", err);
+    console.error("Login error: ", err);
     return NextResponse.json(
       { error: "Unexpected error during login" },
       { status: 500 },

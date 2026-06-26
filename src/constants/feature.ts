@@ -1,7 +1,7 @@
 import { FeatureProps } from "@/src/components/common/Feature";
 
 export const FEATURE_FEEDBACK: FeatureProps = {
-  position: "left",
+  isImageLeftSide: true,
   image: {
     src: "/images/stars-feedback.webp",
     alt: "Feedback Stars",
@@ -12,12 +12,11 @@ export const FEATURE_FEEDBACK: FeatureProps = {
   button: {
     label: "Have a say",
     href: "https://support.google.com/",
-    buttonColor: "transparent",
   },
 };
 
 export const FEATURE_RECRUITMENT: FeatureProps = {
-  position: "right",
+  isImageLeftSide: false,
   image: {
     src: "/images/colleagues-work.webp",
     alt: "Season Sip Banner",
@@ -33,7 +32,7 @@ export const FEATURE_RECRUITMENT: FeatureProps = {
 };
 
 export const FEATURE_CHARITY: FeatureProps = {
-  position: "left",
+  isImageLeftSide: true,
   image: {
     src: "/images/foundation.webp",
     alt: "Foundation",

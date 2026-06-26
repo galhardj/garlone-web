@@ -1,4 +1,5 @@
-export interface Banner {
+// TODO: (06/24/26) To eventually be removed
+export interface ThisFeature {
   metadata: Metadata;
   sys: Sys;
   fields: BannerFields;
@@ -40,26 +41,9 @@ interface BannerFields {
   image: {
     sys: LinkSys;
   };
-  imagePosition: boolean;
+  isImageLeftSide: boolean;
   description: any;
   button: {
     sys: LinkSys;
   };
 }
-
-interface RichTextDocument {
-  data: Record<string, any>;
-  content: any[]; // RichTextNode
-  nodeType: string; // "document"
-}
-
-// interface RichTextNode {
-//   data: Record<string, any>;
-//   content: Array<{
-//     data: Record<string, any>;
-//     marks: any[];
-//     value: string;
-//     nodeType: string; // "text"
-//   }>;
-//   nodeType: string; // "paragraph"
-// }
