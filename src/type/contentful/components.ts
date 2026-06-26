@@ -3,6 +3,7 @@ import { Image } from "@/src/type/contentful/image";
 import { Document } from "@contentful/rich-text-types";
 
 export type Components = Hero | Feature;
+export type ComponentReference = ReferenceTo<Components>;
 
 export interface Page {
   identifier: string;

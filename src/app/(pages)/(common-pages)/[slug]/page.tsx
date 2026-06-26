@@ -1,4 +1,4 @@
-import PageComponents from "@/src/lib/contentful/components-mapper";
+import ComponentMapper from "@/src/lib/contentful/components-mapper";
 import { getPageSlugs, getPageBySlug } from "@/src/lib/contentful";
 
 type Props = {
@@ -17,5 +17,5 @@ export default async function Page({ params }: Props) {
   const pageData = await getPageBySlug(slug);
   const pageComponents = pageData.items[0].fields.components;
 
-  return <PageComponents components={pageComponents} />;
+  return <ComponentMapper components={pageComponents} />;
 }
