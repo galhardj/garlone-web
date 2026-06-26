@@ -1,6 +1,9 @@
 import { Fragment, ComponentType } from "react";
 import { MappedHero, MappedFeature } from "@/src/lib/contentful/mapper";
-import type { ReferenceTo, Components } from "@/src/type/contentful";
+import {
+  CONTENT_TYPE_HERO,
+  CONTENT_TYPE_FEATURE,
+} from "@/src/constants/contentful";
 
 type PageComponentsProps = { components: ReferenceTo<Components>[] };
 

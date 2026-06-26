@@ -1,6 +1,6 @@
 import Hero from "@/src/components/common/Hero";
 import Feature from "@/src/components/common/Feature";
-import {
+import type {
   Hero as HeroFields,
   Feature as FeatureFields,
 } from "@/src/type/contentful/components";

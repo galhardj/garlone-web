@@ -1,5 +1,10 @@
 import { createClient } from "contentful";
 import { ContentfulRoot } from "@/src/type/contentful";
+import {
+  CONTENT_TYPE_PAGE,
+  DEFAULT_LOCALE,
+  ENTRIES_LEVELS,
+} from "@/src/constants/contentful";
 
 const ctflOptions = {
   host: `${process.env.CONTENTFUL_DOMAIN_CDN}`,
@@ -9,11 +14,6 @@ const ctflOptions = {
 };
 
 const ctflClient = createClient(ctflOptions);
-
-//PAGE
-const CONTENT_TYPE_PAGE = "page";
-const DEFAULT_LOCALE = "en-US";
-const ENTRIES_LEVELS = 3;
 
 export const getPages = async (slug?: string): Promise<ContentfulRoot> =>
   (await ctflClient.getEntries({
