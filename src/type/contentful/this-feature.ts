@@ -41,7 +41,7 @@ interface BannerFields {
   image: {
     sys: LinkSys;
   };
-  isImageLeft: boolean;
+  isImageLeftSide: boolean;
   description: any;
   button: {
     sys: LinkSys;

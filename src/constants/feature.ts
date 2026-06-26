@@ -1,7 +1,7 @@
 import { FeatureProps } from "@/src/components/common/Feature";
 
 export const FEATURE_FEEDBACK: FeatureProps = {
-  isImageLeft: true,
+  isImageLeftSide: true,
   image: {
     src: "/images/stars-feedback.webp",
     alt: "Feedback Stars",
@@ -16,7 +16,7 @@ export const FEATURE_FEEDBACK: FeatureProps = {
 };
 
 export const FEATURE_RECRUITMENT: FeatureProps = {
-  isImageLeft: false,
+  isImageLeftSide: false,
   image: {
     src: "/images/colleagues-work.webp",
     alt: "Season Sip Banner",
@@ -32,7 +32,7 @@ export const FEATURE_RECRUITMENT: FeatureProps = {
 };
 
 export const FEATURE_CHARITY: FeatureProps = {
-  isImageLeft: true,
+  isImageLeftSide: true,
   image: {
     src: "/images/foundation.webp",
     alt: "Foundation",

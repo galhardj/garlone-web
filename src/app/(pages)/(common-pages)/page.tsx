@@ -25,21 +25,21 @@ export default async function Page() {
         link={HERO.link}
       />
       <Feature
-        isImageLeft={FEATURE_FEEDBACK.isImageLeft}
+        isImageLeftSide={FEATURE_FEEDBACK.isImageLeftSide}
         image={FEATURE_FEEDBACK.image}
         title={FEATURE_FEEDBACK.title}
         description={FEATURE_FEEDBACK.description}
         button={FEATURE_FEEDBACK.button}
       />
       <Feature
-        isImageLeft={featureContent.fields.isImageLeft}
+        isImageLeftSide={featureContent.fields.isImageLeftSide}
         image={FEATURE_RECRUITMENT.image}
         title={featureContent.fields.title}
         description={featureContent.fields.description}
         button={FEATURE_RECRUITMENT.button}
       />
       <Feature
-        isImageLeft={FEATURE_CHARITY.isImageLeft}
+        isImageLeftSide={FEATURE_CHARITY.isImageLeftSide}
         image={FEATURE_CHARITY.image}
         title={FEATURE_CHARITY.title}
         description={FEATURE_CHARITY.description}

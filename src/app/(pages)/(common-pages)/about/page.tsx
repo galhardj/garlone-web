@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <Feature
-        isImageLeft={FEATURE_RECRUITMENT.isImageLeft}
+        isImageLeftSide={FEATURE_RECRUITMENT.isImageLeftSide}
         image={FEATURE_RECRUITMENT.image}
         title={FEATURE_RECRUITMENT.title}
         description={FEATURE_RECRUITMENT.description}

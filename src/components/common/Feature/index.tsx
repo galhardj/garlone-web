@@ -5,7 +5,7 @@ import { featureVariants } from "./styles";
 import type { Document } from "@contentful/rich-text-types";
 
 export type FeatureProps = {
-  isImageLeft: boolean;
+  isImageLeftSide: boolean;
   image: {
     src: string;
     alt: string;
@@ -20,7 +20,7 @@ export type FeatureProps = {
 };
 
 const Feature = ({
-  isImageLeft = true,
+  isImageLeftSide = true,
   image,
   title,
   description,
@@ -28,7 +28,9 @@ const Feature = ({
 }: FeatureProps) => {
   return (
     <section
-      className={featureVariants({ position: isImageLeft ? "left" : "right" })}
+      className={featureVariants({
+        position: isImageLeftSide ? "left" : "right",
+      })}
     >
       <figure className="relative aspect-square h-full w-full md:w-2/5">
         <ImageNext

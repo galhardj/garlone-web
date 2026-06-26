@@ -28,7 +28,7 @@ export const MappedFeature = ({
   fields: FeatureFields;
 }) => {
   const mappedProps = {
-    isImageLeft: fields.isImageLeftSide,
+    isImageLeftSide: fields.isImageLeftSide,
     image: {
       src: fields.image.fields.file.url,
       alt: fields.image.fields.description,
