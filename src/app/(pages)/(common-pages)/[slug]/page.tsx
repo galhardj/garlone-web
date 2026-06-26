@@ -1,7 +1,7 @@
 import ComponentMapper from "@/src/lib/contentful/components-mapper";
 import { getPageSlugs, getPageBySlug } from "@/src/lib/contentful";
 
-type Props = {
+type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   return allSlugs.map((slug) => ({ slug }));
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   const pageData = await getPageBySlug(slug);
   const pageComponents = pageData.items[0].fields.components;
