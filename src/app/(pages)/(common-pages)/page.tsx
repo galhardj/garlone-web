@@ -12,8 +12,9 @@ import { FORM } from "@/src/constants/form";
 import { getThisFeature } from "@/src/lib/contentful";
 import { HERO } from "@/src/constants/feature";
 
+// TODO: (30/06/26) Consider adjusting foldering / repo structure
 export default async function Page() {
-  // TODO: to create domain/contentful.ts to process api response, refer; src/components/common/Products/ProductSectionWrapper.tsx
+  // TODO: (06/27/26) homepage to part of static page
   const featureContent = await getThisFeature();
 
   return (
