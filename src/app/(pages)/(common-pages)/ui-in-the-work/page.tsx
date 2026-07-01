@@ -3,7 +3,6 @@ import ToggleSwitch from "@/src/components/mock-model/tailwindcss/ToggleSwitch";
 import Hero from "@/src/components/common/Hero";
 import { HERO } from "@/src/constants/feature";
 
-// TODO: check 'server undefined' in /ui-in-the-work' server console
 export default function Page() {
   return (
     <>
