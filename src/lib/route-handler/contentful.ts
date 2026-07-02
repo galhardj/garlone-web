@@ -6,6 +6,7 @@ import {
   ENTRIES_LEVELS,
 } from "@/src/constants/contentful";
 
+// TODO: (07/02/2026) Move these to under the src/lib/contentful
 const ctflOptions = {
   host: `${process.env.CONTENTFUL_DOMAIN_CDN}`,
   space: `${process.env.CONTENTFUL_SPACE}`,
