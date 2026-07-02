@@ -15,10 +15,13 @@ const ctflOptions = {
 
 const ctflClient = createClient(ctflOptions);
 
-export const getPages = async (slug?: string): Promise<ContentfulRoot> =>
-  (await ctflClient.getEntries({
+export const getPages = async (slug?: string): Promise<ContentfulRoot> => {
+  const isSlug = slug || slug === "";
+
+  return (await ctflClient.getEntries({
     content_type: CONTENT_TYPE_PAGE,
     locale: DEFAULT_LOCALE,
     include: ENTRIES_LEVELS,
-    ...(slug && { "fields.slug": slug }),
+    ...(isSlug && { "fields.slug": `/${slug}` }),
   })) as unknown as ContentfulRoot;
+};

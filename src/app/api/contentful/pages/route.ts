@@ -1,4 +1,5 @@
 import { getPages } from "@/src/lib/route-handler/contentful";
+import { mapAllSlugs } from "@/src/lib/contentful";
 import {
   nextResponseSuccess,
   nextResponseFailed,
@@ -7,7 +8,8 @@ import {
 export async function GET() {
   try {
     const allPages = await getPages();
-    const allSlugs = allPages.items.map((page) => page.fields.slug);
+    const allSlugs = mapAllSlugs(allPages);
+
     return nextResponseSuccess(allSlugs);
   } catch (err) {
     return nextResponseFailed(err, "contentful/pages");
