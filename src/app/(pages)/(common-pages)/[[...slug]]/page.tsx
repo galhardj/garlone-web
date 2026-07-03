@@ -8,19 +8,16 @@ type PageProps = {
 };
 
 // TODO: (06/22/26) Consider having favicon.ico in src/app/ or public/
-const mapSlugParams = (slug: string) =>
-  slug === "" ? undefined : slug.split("/");
-
 export async function generateStaticParams() {
   const allSlugs = await getPageSlugs();
   return allSlugs.map((slug) => ({
-    slug: mapSlugParams(slug),
+    slug: slug.split("/"),
   }));
 }
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const slugPath = slug ? slug.join("/") : "";
+  const slugPath = slug?.join("/") ?? ""; //homepage is undefined
   const pageData = await getPageBySlug(slugPath);
   const pageComponents = pageData.items[0].fields.components;
 
