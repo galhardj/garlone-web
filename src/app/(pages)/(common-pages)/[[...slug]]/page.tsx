@@ -1,5 +1,5 @@
-import ComponentMapper from "@/src/lib/contentful/components-mapper";
-import { getPageSlugs, getPageBySlug } from "@/src/lib/contentful";
+import ComponentMapper from "@/src/lib/contentful/mapper";
+import { getAllSlugs, getPageBySlug } from "@/src/lib/contentful/get-pages";
 
 export const dynamicParams = false;
 
@@ -9,7 +9,7 @@ type PageProps = {
 
 // TODO: (06/22/26) Consider having favicon.ico in src/app/ or public/
 export async function generateStaticParams() {
-  const allSlugs = await getPageSlugs();
+  const allSlugs = await getAllSlugs();
   return allSlugs.map((slug) => ({
     slug: slug.split("/"),
   }));
