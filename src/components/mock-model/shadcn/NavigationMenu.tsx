@@ -55,7 +55,7 @@ export default async function NavigationMenuBar({
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild className={itemStyle}>
-              <Link href="/about">About</Link>
+              <Link href="/about-us">About</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>

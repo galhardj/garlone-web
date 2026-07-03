@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 import { refineCatchedErr } from "@/src/lib/http-client";
-import { nextResponseFailed, nextResponseSuccess } from "./utils";
+import { nextResponseFailed, nextResponseSuccess } from "./route-handler";
 
 jest.mock("@/src/lib/http-client", () => ({
   refineCatchedErr: jest.fn(),

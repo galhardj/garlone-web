@@ -3,11 +3,14 @@ import {
   CONTENT_TYPE_FEATURE,
   CONTENT_TYPE_HERO,
 } from "@/src/constants/contentful";
-import { MappedFeature, MappedHero } from "@/src/lib/contentful/mapper";
+import {
+  MappedFeature,
+  MappedHero,
+} from "@/src/lib/contentful/mapper/components";
 import type { ComponentReference } from "@/src/type/contentful/components";
-import ComponentMapper from "./components-mapper";
+import ComponentMapper from "@/src/lib/contentful/mapper/";
 
-jest.mock("@/src/lib/contentful/mapper", () => ({
+jest.mock("@/src/lib/contentful/mapper/components", () => ({
   MappedHero: jest.fn(({ fields }: { fields: { title: string } }) => (
     <div data-testid="mapped-hero">{fields.title}</div>
   )),

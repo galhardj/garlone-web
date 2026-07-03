@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { MappedFeature, MappedHero } from "./mapper";
+import { MappedFeature, MappedHero } from "./components";
 import Hero from "@/src/components/common/Hero";
 import Feature from "@/src/components/common/Feature";
 import type {

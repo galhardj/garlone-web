@@ -1,5 +1,8 @@
 import { Fragment, ComponentProps } from "react";
-import { MappedHero, MappedFeature } from "@/src/lib/contentful/mapper";
+import {
+  MappedHero,
+  MappedFeature,
+} from "@/src/lib/contentful/mapper/components";
 import {
   CONTENT_TYPE_HERO,
   CONTENT_TYPE_FEATURE,
