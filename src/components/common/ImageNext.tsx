@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { cn } from "@/src/lib/utils";
-import { normalizeUrl } from "@/src/lib/utils";
+import { cn, normalizeUrl } from "@/src/lib/utils";
 
 type ImageNextProps = {
   src: string;
