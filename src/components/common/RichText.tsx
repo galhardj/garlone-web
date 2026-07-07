@@ -1,7 +1,6 @@
-import { JSX } from "react";
-import { cn } from "@/src/lib/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import type { Document } from "@contentful/rich-text-types";
+import { cn } from "@/src/lib/utils";
 
 type RichTextProps = {
   text: string | Document;
