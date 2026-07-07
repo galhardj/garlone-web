@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { cn } from "@/src/lib/utils";
-import { normalizeUrl } from "@/src/lib/utils";
+import { cn, normalizeUrl } from "@/src/lib/utils";
 
 type ImageNextProps = {
   src: string;
@@ -21,7 +20,6 @@ const ImageNext = ({
   className,
   fill = true,
   sizes,
-  alt,
   ...props
 }: ImageNextProps) => {
   const isLocalImage = src.startsWith("/images/");
@@ -29,7 +27,6 @@ const ImageNext = ({
   return (
     <Image
       src={imagePath}
-      alt={alt ?? ""}
       className={cn(className, "object-center")}
       fill={fill}
       sizes={sizes && imageSizes[sizes]}

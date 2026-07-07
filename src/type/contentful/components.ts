@@ -5,6 +5,7 @@ import { Document } from "@contentful/rich-text-types";
 export type Components = Hero | Feature;
 export type ComponentReference = ReferenceTo<Components>;
 
+// TODO: (06/30/26) Include 'zod' for more extensive schema validation of both runtime and type' inference
 export interface Page {
   identifier: string;
   slug: string;
