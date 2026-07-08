@@ -17,6 +17,7 @@ const imageSizes = {
 
 const ImageNext = ({
   src,
+  alt,
   className,
   fill = true,
   sizes,
@@ -27,6 +28,7 @@ const ImageNext = ({
   return (
     <Image
       src={imagePath}
+      alt={alt ?? ""}
       className={cn(className, "object-center")}
       fill={fill}
       sizes={sizes && imageSizes[sizes]}

@@ -1,62 +1,45 @@
 /**
- * Application link component with internal/external URL handling.
- *
- * Supported href formats:
- * External URL: `https://developer.mozilla.org`
- * Absolute internal URL: `http://localhost:8099/products`
- * Absolute route: `/products`
- * Relative route: `products`
+ * href formats:
+ * URL as External: `https://developer.mozilla.org`
+ * Path as Internal: `/products`
+ * Path as Internal: `products`
  */
-
 import Link from "next/link";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { cn } from "@/src/lib/utils";
-import { buttonVariants, type buttonColors } from "./styles";
+import { type buttonColors, buttonVariants } from "./styles";
 
-interface LinkProps {
+type LinkProps = {
   href: string;
   buttonColor?: buttonColors;
   children: ReactNode;
   className?: string;
+};
+
+const HAS_SCHEME = /^[a-z][a-z\d+.-]*:/i; // matches http:, https:, mailto:, tel:, etc.
+function isExternalHref(href: string): boolean {
+  return HAS_SCHEME.test(href);
 }
 
+const getLinkProps = (href: string) => {
+  const external = isExternalHref(href);
+  const externalAttrs = { target: "_blank", rel: "noopener noreferrer" };
+  return {
+    LinkTag: external ? "a" : Link,
+    attrs: external ? externalAttrs : {},
+  } as const;
+};
+
+// TODO: (07/08/2026) Consider Custom App in Contentful for Label/Icon and URL/path
 const LinkButton = ({ href, buttonColor, className, children }: LinkProps) => {
-  //SSR compatibility — window API doesn't exist in server
-  const hostOrigin =
-    typeof window !== "undefined" ? window.location.origin : "";
-
-  const isExternalUrl = (href: string) => {
-    try {
-      return new URL(href).origin !== hostOrigin;
-    } catch {
-      return false;
-    }
-  };
-
   const style = cn(buttonVariants({ color: buttonColor }), className);
+  const { LinkTag, attrs } = getLinkProps(href);
 
-  if (isExternalUrl(href)) {
-    return (
-      <a
-        href={href}
-        className={style}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </a>
-    );
-  } else {
-    const internalSlug = href.startsWith(hostOrigin)
-      ? href.slice(hostOrigin.length) // get /slug
-      : `${href.startsWith("/") ? "" : "/"}` + `${href}`;
-
-    return (
-      <Link href={internalSlug} className={style}>
-        {children}
-      </Link>
-    );
-  }
+  return (
+    <LinkTag href={href} className={style} {...attrs}>
+      {children}
+    </LinkTag>
+  );
 };
 
 export default LinkButton;
