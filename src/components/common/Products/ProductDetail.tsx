@@ -1,10 +1,10 @@
 "use client";
 
-import { IconButton } from "@/src/components/common/Button";
-import { LinkButton } from "@/src/components/common/Button";
-import ImageNext from "@/src/components/common/ImageNext";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Button from "@/src/components/common/Button";
+import LinkButton from "@/src/components/common/Button/LinkButton";
+import ImageNext from "@/src/components/common/ImageNext";
 import { typeColor } from "@/src/constants/products";
 import { useDisableBodyScroll } from "@/src/hooks/useDisableBodyScroll";
 import { useKeydownTrigger } from "@/src/hooks/useKeydownTrigger";
@@ -62,12 +62,12 @@ const ProductDetail = ({
             fill
             sizes="halfWidth"
           />
-          <IconButton category="chevronLeft" onClick={slidehandler("prev")}>
+          <Button category="chevronLeft" onClick={slidehandler("prev")}>
             <ChevronLeft />
-          </IconButton>
-          <IconButton category="chevronRight" onClick={slidehandler("next")}>
+          </Button>
+          <Button category="chevronRight" onClick={slidehandler("next")}>
             <ChevronRight />
-          </IconButton>
+          </Button>
         </figure>
         <div
           className={`flex w-full flex-1 flex-col items-center rounded-xl p-6 ${typeColor[product.type[0]]} md:p-10`}

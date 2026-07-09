@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { IconButton } from "@/src/components/common/Button";
+import Button from "@/src/components/common/Button";
 import Form from "@/src/components/common/Forms/Form";
 import Input from "@/src/components/common/Forms/InputWithLabel";
 import ImageNext from "@/src/components/common/ImageNext";
@@ -68,14 +68,14 @@ const LoginForm = () => {
             required
             iconEmbeded
           >
-            <IconButton
+            <Button
               category="password"
               aria-label="toggle password visibility"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => setShowPass((p) => !p)}
             >
               {showPass ? <Eye /> : <EyeOff />}
-            </IconButton>
+            </Button>
           </Input>
 
           {error && (
@@ -83,9 +83,9 @@ const LoginForm = () => {
               {error}
             </p>
           )}
-          <IconButton type="submit" data-testid="login-submit">
+          <Button type="submit" data-testid="login-submit">
             Login
-          </IconButton>
+          </Button>
         </Form>
       </div>
     </div>

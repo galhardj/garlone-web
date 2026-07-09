@@ -1,5 +1,6 @@
 import type { Document } from "@contentful/rich-text-types";
-import { type ButtonColors, LinkButton } from "@/src/components/common/Button";
+import LinkButton from "@/src/components/common/Button/LinkButton";
+import { type ButtonColors } from "@/src/components/common/Button/styles";
 import ImageNext from "@/src/components/common/ImageNext";
 import RichText from "@/src/components/common/RichText";
 import { featureVariants } from "./styles";

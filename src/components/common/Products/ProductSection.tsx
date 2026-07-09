@@ -1,7 +1,7 @@
 "use client";
 
 import { Dispatch, useMemo, useState } from "react";
-import { IconButton } from "@/src/components/common/Button";
+import Button from "@/src/components/common/Button";
 import ContainerBlock from "@/src/components/common/ContainerBlock";
 import { CloseIcon } from "@/src/icons/CloseIcon";
 import { PokemonDetail } from "@/src/type/pokemon";
@@ -52,32 +52,32 @@ const ProductSection = ({
 
   const ButtonExpand = () => (
     <div className="flex gap-3">
-      <IconButton
+      <Button
         color="yellow"
         onClick={() => setItemLen((prev) => prev + lengthDiff)}
         data-testid="show-more-products"
       >
         Show more
-      </IconButton>
-      <IconButton
+      </Button>
+      <Button
         color="yellowDark"
         onClick={() => setItemLen(productList.length)}
         data-testid="show-all-products"
       >
         Show all
-      </IconButton>
+      </Button>
       {itemLen > lengthDiff && <ButtonCollapse />}
     </div>
   );
 
   const ButtonCollapse = () => (
-    <IconButton
+    <Button
       color="blue"
       onClick={() => setItemLen(lengthDiff)}
       data-testid="minimize-product-list"
     >
       Minimize
-    </IconButton>
+    </Button>
   );
 
   const ButtonSection = () => (
@@ -94,7 +94,7 @@ const ProductSection = ({
 
   const ResetButton = () => {
     return (
-      <IconButton
+      <Button
         onClick={() => {
           setSearchQuery("");
           setCategory("");
@@ -104,7 +104,7 @@ const ProductSection = ({
         aria-label="Clear product section filters"
       >
         <CloseIcon className="h-6 w-6 text-red-500" />
-      </IconButton>
+      </Button>
     );
   };
 

@@ -1,8 +1,8 @@
+import type { Document } from "@contentful/rich-text-types";
+import LinkButton from "@/src/components/common/Button/LinkButton";
 import ImageNext from "@/src/components/common/ImageNext";
 import RichText from "@/src/components/common/RichText";
-import { LinkButton } from "@/src/components/common/Button";
 import { cn } from "@/src/lib/utils";
-import type { Document } from "@contentful/rich-text-types";
 
 interface HeroBannerProps {
   image: {
