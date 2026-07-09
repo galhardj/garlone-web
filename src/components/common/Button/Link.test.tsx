@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import LinkButton from "./LinkButton";
+import LinkButton from "./Link";
 
 jest.mock("next/link", () => {
   return function MockLink({

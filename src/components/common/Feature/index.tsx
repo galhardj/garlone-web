@@ -1,5 +1,5 @@
 import type { Document } from "@contentful/rich-text-types";
-import LinkButton from "@/src/components/common/Button/LinkButton";
+import ButtonLink from "@/src/components/common/Button/Link";
 import { type ButtonColors } from "@/src/components/common/Button/styles";
 import ImageNext from "@/src/components/common/ImageNext";
 import RichText from "@/src/components/common/RichText";
@@ -46,13 +46,13 @@ const Feature = ({
         <h2 className="text-left">{title}</h2>
         <RichText text={description} className="whitespace-pre-line" />
         {button && (
-          <LinkButton
+          <ButtonLink
             href={button.href}
             buttonColor={button.buttonColor}
             className="self-stretch md:self-start"
           >
             {button.label}
-          </LinkButton>
+          </ButtonLink>
         )}
       </div>
     </section>

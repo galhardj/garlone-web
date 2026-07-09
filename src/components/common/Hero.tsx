@@ -1,5 +1,5 @@
 import type { Document } from "@contentful/rich-text-types";
-import LinkButton from "@/src/components/common/Button/LinkButton";
+import ButtonLink from "@/src/components/common/Button/Link";
 import ImageNext from "@/src/components/common/ImageNext";
 import RichText from "@/src/components/common/RichText";
 import { cn } from "@/src/lib/utils";
@@ -51,13 +51,13 @@ const Hero = ({ image, title, description, link }: HeroBannerProps) => {
               "flex min-h-60 flex-col items-center md:min-h-20",
             )}
           />
-          <LinkButton
+          <ButtonLink
             href={link.url}
             buttonColor="transparent"
             className="mt-3 inline-flex justify-center gap-2"
           >
             {link.text}
-          </LinkButton>
+          </ButtonLink>
         </div>
       </div>
     </div>

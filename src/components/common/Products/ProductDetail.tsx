@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Button from "@/src/components/common/Button";
-import LinkButton from "@/src/components/common/Button/LinkButton";
+import ButtonLink from "@/src/components/common/Button/Link";
 import ImageNext from "@/src/components/common/ImageNext";
 import { typeColor } from "@/src/constants/products";
 import { useDisableBodyScroll } from "@/src/hooks/useDisableBodyScroll";
@@ -85,12 +85,12 @@ const ProductDetail = ({
               <DetailList title="Moves" list={product.moves} />
             </div>
 
-            <LinkButton
+            <ButtonLink
               href={`https://bulbapedia.bulbagarden.net/wiki/${product.name}_(Pokemon)`}
               buttonColor="gray"
             >
               Bulbapedia
-            </LinkButton>
+            </ButtonLink>
           </div>
         </div>
       </div>
