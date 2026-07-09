@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import Input from "@/src/components/common/Forms/InputWithLabel";
-import { RegButton, IconButton } from "@/src/components/common/Button";
+import { useRef, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { IconButton } from "@/src/components/common/Button";
 import Form from "@/src/components/common/Forms/Form";
+import Input from "@/src/components/common/Forms/InputWithLabel";
 import ImageNext from "@/src/components/common/ImageNext";
 import { getLoginUserData } from "@/src/lib/api/login";
-import { Eye, EyeOff } from "lucide-react";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const LoginForm = () => {
     try {
       await getLoginUserData(userEmail, userPassword);
 
-      router.push("/about");
+      router.push("/about-us");
     } catch (err) {
       setError(`Unexpected error, with message: ${(err as Error).message}`);
     }
@@ -83,9 +83,9 @@ const LoginForm = () => {
               {error}
             </p>
           )}
-          <RegButton type="submit" data-testid="login-submit">
+          <IconButton type="submit" data-testid="login-submit">
             Login
-          </RegButton>
+          </IconButton>
         </Form>
       </div>
     </div>

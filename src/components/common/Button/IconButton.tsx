@@ -1,24 +1,42 @@
+//TODO: (05/24/2026) More styles for buttons for existing components use it
 import React from "react";
 import { cn } from "@/src/lib/utils";
-import { type IconCategory, iconVariants } from "./styles";
+import {
+  type ButtonColors,
+  type IconCategory,
+  buttonVariants,
+  iconVariants,
+} from "./styles";
 
-type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type BaseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+type RegButtonProps = BaseProps & {
+  color?: ButtonColors;
+  category?: never;
+};
+
+type IconButtonProps = BaseProps & {
   category: IconCategory;
+  color?: never;
 };
 
-const IconButton = ({
-  type = "button",
-  className,
-  category,
-  children,
-  ...props
-}: IconButtonProps) => {
-  const style = cn(iconVariants({ category }), className);
-  return (
-    <button className={style} type={type} {...props}>
-      {children}
-    </button>
-  );
-};
+type ButtonProps = RegButtonProps | IconButtonProps;
 
-export default IconButton;
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { type = "button", className, color, category, children, ...props },
+    ref,
+  ) => {
+    const style = category
+      ? cn(iconVariants({ category }), className)
+      : cn(buttonVariants({ color }), className);
+
+    return (
+      <button ref={ref} className={style} type={type} {...props}>
+        {children}
+      </button>
+    );
+  },
+);
+
+export default Button;

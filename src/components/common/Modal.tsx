@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { RegButton } from "@/src/components/common/Button";
+import { useEffect, useRef, useState } from "react";
+import { IconButton } from "@/src/components/common/Button";
 
 const ModalSection = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -41,9 +41,9 @@ const ModalSection = () => {
 
   return (
     <>
-      <RegButton ref={triggerRef} onClick={setModal}>
+      <IconButton ref={triggerRef} onClick={setModal}>
         Trigger modal
-      </RegButton>
+      </IconButton>
       {modalOpen && (
         <div className="fixed inset-0 z-30 bg-black/50">
           <div
@@ -61,10 +61,10 @@ const ModalSection = () => {
               </p>
               <div className="flex justify-end gap-4">
                 {/* Cancel; className="bg-gray-50 text-gray-700" */}
-                <RegButton onClick={setModal}>Cancel</RegButton>{" "}
-                <RegButton ref={confirmRef} onClick={setModal}>
+                <IconButton onClick={setModal}>Cancel</IconButton>{" "}
+                <IconButton ref={confirmRef} onClick={setModal}>
                   Confirm
-                </RegButton>
+                </IconButton>
               </div>
             </div>
           </div>

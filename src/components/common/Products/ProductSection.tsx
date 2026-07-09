@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useMemo, Dispatch } from "react";
+import { Dispatch, useMemo, useState } from "react";
+import { IconButton } from "@/src/components/common/Button";
+import ContainerBlock from "@/src/components/common/ContainerBlock";
+import { CloseIcon } from "@/src/icons/CloseIcon";
+import { PokemonDetail } from "@/src/type/pokemon";
+import type { ProductSection } from "@/src/type/product";
+import ProductDetail from "./ProductDetail";
 import ProductList from "./ProductList";
 import SearchBox from "./SearchBox";
 import SortItems from "./SortItems";
-import { RegButton, IconButton } from "@/src/components/common/Button";
-import ProductDetail from "./ProductDetail";
-import ContainerBlock from "@/src/components/common/ContainerBlock";
-import { PokemonDetail } from "@/src/type/pokemon";
-import { CloseIcon } from "@/src/icons/CloseIcon";
-import type { ProductSection } from "@/src/type/product";
 
 //TODO: see if MediaQuery should be implemented; https://www.linkedin.com/pulse/why-you-should-stop-using-media-queries-nextjs-felipe-rocha-82e8f
 //TODO: https://stackoverflow.com/questions/76732951/how-do-i-use-media-queries-in-the-next-js-app-router
@@ -52,32 +52,32 @@ const ProductSection = ({
 
   const ButtonExpand = () => (
     <div className="flex gap-3">
-      <RegButton
+      <IconButton
         color="yellow"
         onClick={() => setItemLen((prev) => prev + lengthDiff)}
         data-testid="show-more-products"
       >
         Show more
-      </RegButton>
-      <RegButton
+      </IconButton>
+      <IconButton
         color="yellowDark"
         onClick={() => setItemLen(productList.length)}
         data-testid="show-all-products"
       >
         Show all
-      </RegButton>
+      </IconButton>
       {itemLen > lengthDiff && <ButtonCollapse />}
     </div>
   );
 
   const ButtonCollapse = () => (
-    <RegButton
+    <IconButton
       color="blue"
       onClick={() => setItemLen(lengthDiff)}
       data-testid="minimize-product-list"
     >
       Minimize
-    </RegButton>
+    </IconButton>
   );
 
   const ButtonSection = () => (
