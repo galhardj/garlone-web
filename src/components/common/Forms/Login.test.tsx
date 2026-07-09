@@ -86,7 +86,7 @@ describe("LoginForm", () => {
           "user@example.com",
           "password123",
         );
-        expect(mockPush).toHaveBeenCalledWith("/about");
+        expect(mockPush).toHaveBeenCalledWith("/about-us");
       });
 
       it("shows error message when login request fails", async () => {

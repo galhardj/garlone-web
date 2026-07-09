@@ -1,8 +1,9 @@
+import type { Document } from "@contentful/rich-text-types";
+import ButtonLink from "@/src/components/common/Button/Link";
+import { type ButtonColors } from "@/src/components/common/Button/styles";
 import ImageNext from "@/src/components/common/ImageNext";
 import RichText from "@/src/components/common/RichText";
-import { LinkButton, type buttonColors } from "@/src/components/common/Button";
 import { featureVariants } from "./styles";
-import type { Document } from "@contentful/rich-text-types";
 
 export type FeatureProps = {
   isImageLeftSide: boolean;
@@ -15,7 +16,7 @@ export type FeatureProps = {
   button?: {
     label: string;
     href: string;
-    buttonColor?: buttonColors;
+    buttonColor?: ButtonColors;
   };
 };
 
@@ -45,13 +46,13 @@ const Feature = ({
         <h2 className="text-left">{title}</h2>
         <RichText text={description} className="whitespace-pre-line" />
         {button && (
-          <LinkButton
+          <ButtonLink
             href={button.href}
             buttonColor={button.buttonColor}
             className="self-stretch md:self-start"
           >
             {button.label}
-          </LinkButton>
+          </ButtonLink>
         )}
       </div>
     </section>

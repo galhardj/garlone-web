@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import Input from "@/src/components/common/Forms/InputWithLabel";
-import { RegButton, IconButton } from "@/src/components/common/Button";
+import { useRef, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import Button from "@/src/components/common/Button";
 import Form from "@/src/components/common/Forms/Form";
+import Input from "@/src/components/common/Forms/InputWithLabel";
 import ImageNext from "@/src/components/common/ImageNext";
 import { getLoginUserData } from "@/src/lib/api/login";
-import { Eye, EyeOff } from "lucide-react";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const LoginForm = () => {
     try {
       await getLoginUserData(userEmail, userPassword);
 
-      router.push("/about");
+      router.push("/about-us");
     } catch (err) {
       setError(`Unexpected error, with message: ${(err as Error).message}`);
     }
@@ -68,14 +68,14 @@ const LoginForm = () => {
             required
             iconEmbeded
           >
-            <IconButton
+            <Button
               category="password"
               aria-label="toggle password visibility"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => setShowPass((p) => !p)}
             >
               {showPass ? <Eye /> : <EyeOff />}
-            </IconButton>
+            </Button>
           </Input>
 
           {error && (
@@ -83,9 +83,9 @@ const LoginForm = () => {
               {error}
             </p>
           )}
-          <RegButton type="submit" data-testid="login-submit">
+          <Button type="submit" data-testid="login-submit">
             Login
-          </RegButton>
+          </Button>
         </Form>
       </div>
     </div>
