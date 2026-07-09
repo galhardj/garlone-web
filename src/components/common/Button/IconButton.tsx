@@ -1,10 +1,9 @@
 import React from "react";
-import { type VariantProps } from "class-variance-authority";
 import { cn } from "@/src/lib/utils";
-import { iconVariants } from "./styles";
+import { type IconCategory, iconVariants } from "./styles";
 
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  category: VariantProps<typeof iconVariants>["category"];
+  category: IconCategory;
 };
 
 const IconButton = ({

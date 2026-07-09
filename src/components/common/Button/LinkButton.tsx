@@ -7,11 +7,11 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { cn } from "@/src/lib/utils";
-import { type buttonColors, buttonVariants } from "./styles";
+import { type ButtonColors, buttonVariants } from "./styles";
 
 type LinkProps = {
   href: string;
-  buttonColor?: buttonColors;
+  buttonColor?: ButtonColors;
   children: ReactNode;
   className?: string;
 };

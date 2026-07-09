@@ -1,8 +1,8 @@
+import type { Document } from "@contentful/rich-text-types";
+import { type ButtonColors, LinkButton } from "@/src/components/common/Button";
 import ImageNext from "@/src/components/common/ImageNext";
 import RichText from "@/src/components/common/RichText";
-import { LinkButton, type buttonColors } from "@/src/components/common/Button";
 import { featureVariants } from "./styles";
-import type { Document } from "@contentful/rich-text-types";
 
 export type FeatureProps = {
   isImageLeftSide: boolean;
@@ -15,7 +15,7 @@ export type FeatureProps = {
   button?: {
     label: string;
     href: string;
-    buttonColor?: buttonColors;
+    buttonColor?: ButtonColors;
   };
 };
 

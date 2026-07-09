@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
   "mt-3 px-6 min-w-[10rem] py-2 text-center font-medium rounded border border-black hover:bg-black hover:text-white transition-colors duration-100",
@@ -18,7 +18,7 @@ export const buttonVariants = cva(
   },
 );
 
-export type buttonColors = VariantProps<typeof buttonVariants>["color"];
+export type ButtonColors = VariantProps<typeof buttonVariants>["color"];
 
 export const iconVariants = cva("", {
   variants: {
@@ -34,3 +34,5 @@ export const iconVariants = cva("", {
     },
   },
 });
+
+export type IconCategory = VariantProps<typeof iconVariants>["category"];
