@@ -1,12 +1,13 @@
 "use client";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import { within, userEvent } from "@storybook/test";
+import { userEvent, within } from "@storybook/test";
 import Accordion from "@/src/components/common/Accordion";
 
 const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
@@ -52,7 +53,7 @@ export const Default: Story = {
     accordions: defaultAccordions,
   },
   argTypes: {
-    title: { control: 'text', description: 'Disables the button' },
+    title: { control: "text" },
   },
 };
 
@@ -164,12 +165,20 @@ export const OpenFirstItem: Story = {
     title: "Frequently Asked Questions",
     accordions: defaultAccordions,
   },
+  argTypes: {
+    title: {
+      control: "text",
+    },
+    accordions: {
+      control: false, // too complex to edit manually
+    },
+  },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);    
+    const canvas = within(canvasElement);
     await userEvent.click(canvas.getByText(defaultAccordions[0].summary));
 
     await expect(
-      canvas.getByText(defaultAccordions[0].description)
+      canvas.getByText(defaultAccordions[0].description),
     ).toBeVisible();
   },
 };
