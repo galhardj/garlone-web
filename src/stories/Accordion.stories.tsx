@@ -165,9 +165,11 @@ export const OpenFirstItem: Story = {
     accordions: defaultAccordions,
   },
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    
-    // clicks the first accordion item to open it
+    const canvas = within(canvasElement);    
     await userEvent.click(canvas.getByText(defaultAccordions[0].summary));
+
+    await expect(
+      canvas.getByText(defaultAccordions[0].description)
+    ).toBeVisible();
   },
 };
