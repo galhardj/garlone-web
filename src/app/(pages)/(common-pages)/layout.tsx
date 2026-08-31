@@ -6,7 +6,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // TODO: move 'sticky' style inside NavigationMenuBar
   return (
     <>
       <NavigationMenuBar />

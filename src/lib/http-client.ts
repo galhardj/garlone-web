@@ -1,5 +1,3 @@
-// TODO: Check this out for best practice sample; https://dev.to/dmitrevnik/fetch-wrapper-for-nextjs-a-deep-dive-into-best-practices-53dh
-
 type RenderMode = "SSR" | "SSG" | "ISR";
 
 type CustomRequestInit = RequestInit & {

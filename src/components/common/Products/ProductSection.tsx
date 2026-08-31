@@ -11,8 +11,6 @@ import ProductList from "./ProductList";
 import SearchBox from "./SearchBox";
 import SortItems from "./SortItems";
 
-//TODO: see if MediaQuery should be implemented; https://www.linkedin.com/pulse/why-you-should-stop-using-media-queries-nextjs-felipe-rocha-82e8f
-//TODO: https://stackoverflow.com/questions/76732951/how-do-i-use-media-queries-in-the-next-js-app-router
 const ProductSection = ({
   productList,
   allCategories,
