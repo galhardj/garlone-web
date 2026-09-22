@@ -15,6 +15,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@apollo/client": "^4.3.1",
     "@contentful/rich-text-react-renderer": "^16.1.6",
     "@contentstack/delivery-sdk": "^5.6.0",
     "@contentstack/management": "^1.31.1",
