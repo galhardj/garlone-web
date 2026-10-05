@@ -33,7 +33,7 @@ const env: Props = {
   apiKey: "blt3237f43fdd69f9ca",
   accessToken: "cs572cbcd28e28e60f18e82c4b",
   environment: "production",
-  branch: "development",
+  branch: "feat_footer",
 };
 
 export const client = create(env);

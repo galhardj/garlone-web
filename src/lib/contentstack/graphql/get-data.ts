@@ -9,18 +9,30 @@ type Data = {
   };
 };
 
-const GET_LIST_OF_PAGES: TypedDocumentNode<Data, OperationVariables> = gql`
-  query GetaListofPages {
-    all_page {
+const GET_FOOTER: TypedDocumentNode<any, OperationVariables> = gql`
+  query GetFooter {
+    all_footer(limit: 1) {
       items {
-        slug
+        blurb
+        copyright
+        stats
+        columns {
+          title
+          links {
+            label
+            url
+          }
+          _metadata {
+            uid
+          }
+        }
       }
     }
   }
 `;
 
 const { data } = await client.query({
-  query: GET_LIST_OF_PAGES,
+  query: GET_FOOTER,
 });
 
 if (!data) {
@@ -28,5 +40,5 @@ if (!data) {
 }
 
 export const {
-  all_page: { items: pages },
+  all_footer: { items: footer },
 } = data;
